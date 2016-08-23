@@ -21,6 +21,8 @@ const ghPages = require('gulp-gh-pages');
 const newer = require('gulp-newer');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 
 // ЗАДАЧА: Компиляция препроцессора
 gulp.task('less', function(){
@@ -49,10 +51,9 @@ gulp.task('html', function() {
     .pipe(gulp.dest(dirs.build));                           // записываем файлы (путь из константы)
 });
 
-
 // ЗАДАЧА: Копирование и оптимизация изображений
 gulp.task('img', function () {
-   console.log('---------- Копирование и оптимизация картинок');
+
   return gulp.src(
     dirs.source + '/img/*.{gif,png,jpg,jpeg,svg}',          // какие файлы обрабатывать (путь из константы, маска имени, много расширений)
     {since: gulp.lastRun('img')                             // оставим в потоке обработки только изменившиеся от последнего запуска задачи (в этой сессии) файлы
@@ -74,10 +75,23 @@ gulp.task('clean', function () {
   ]);
 });
 
+// ЗАДАЧА: Конкатенация и углификация Javascript
+gulp.task('js', function () {
+  return gulp.src([
+      dirs.source + '/js/jquery-3.1.0.min.js',
+      dirs.source + '/js/jquery-migrate-1.4.1.min.js',
+      dirs.source + '/js/owl.carousel.min.js',
+      dirs.source + '/js/script.js',
+    ])
+    .pipe(concat('script.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(dirs.build + '/js'));
+});
+
 // ЗАДАЧА: Сборка всего
 gulp.task('build', gulp.series(                             // последовательно:
   'clean',                                                  // последовательно: очистку папки сборки
-  gulp.parallel('less', 'img'),                                    // параллельно: компиляцию стилей, ...
+  gulp.parallel('less', 'img'),                             // параллельно: компиляцию стилей, ...
   'html'                                                    // последовательно: сборку разметки
 ));
 

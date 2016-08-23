@@ -64,6 +64,3 @@ function showScrollTopButton(){
     $('#toTop').fadeOut();
   }
 };
-
-
-
