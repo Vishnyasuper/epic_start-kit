@@ -1,0 +1,123 @@
+.vacation-type{
+
+  &__inner{
+    /*width: @screen-xs;*/
+    width: 100%;
+    /*// padding: 0 20px;*/
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+  }
+
+  &__inner:after{
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  &__slide-type{
+    padding: 55px 0 97px 0;
+    // background-image: url('../img/home1200__vacation-type.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__title{
+    padding: 0;
+    margin: 0;
+    font-family: @font_PT_SerifCaption;
+    font-size: 26px;
+    font-weight: 400;
+    color: @promo-health-color;
+    padding-bottom: 35px;
+  }
+
+  &__description{
+    font-family: @font_FiraSans;
+    font-size: 16px;
+    font-weight: 400;
+    color: @promo-health-color;
+    padding: 0 20px 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__list{
+    display: none;
+  }
+
+  @media (min-width: @screen-sm-min-min){
+    &__slide-type{
+      padding-bottom: 25px;
+    }
+
+    &__title{
+      font-size: 30px;
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    &__description{
+      flex-basis: 580px;
+    }
+
+    &__list{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding-top: 33px;
+      padding-left: 45px;
+      padding-right: 45px;
+      flex-wrap: wrap;
+    }
+
+    li{
+      list-style-type: none;
+
+    }
+
+    &__view{
+        text-align: center;
+        margin: 0 18px 0;
+        padding-bottom: 25px;
+    }
+
+    &__img{
+      border-radius: 40px;
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      text-align: center;
+      // margin-bottom: 34px;
+    }
+
+    &__img-skin{
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    &__photo{
+        width: 100%;
+    }
+
+    &__name{
+      display: block;
+      font-family: @font_FiraSans;
+      font-size: 14px;
+      font-weight: 500;
+      color: @link-header-color;
+      text-transform: uppercase;
+      width: 100px;
+      padding-top: 6px;
+    }
+
+  }
+}

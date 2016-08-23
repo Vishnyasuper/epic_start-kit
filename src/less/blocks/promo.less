@@ -1,0 +1,58 @@
+.promo{
+  display: flex;
+  flex-direction: column-reverse;
+
+  &__tabs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 0;
+    padding: 15px 20px 0;
+
+  }
+
+  &__tab{
+    position: relative;
+    font-size: 14px;
+    font-family: @font_FiraSans;
+    text-transform: uppercase;
+    font-weight: 400;
+    list-style-type: none;
+
+    a{
+      color: @promo-tab-color;
+      text-decoration: none;
+    }
+
+  }
+
+//дописать цвет активной ссылки
+
+  &__tab:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 40px;
+    width: 30px;
+    height: 2px;
+    background-color: @promo-tab-line-color;
+  }
+
+  @media (min-width: @screen-sm-min-min){
+    &__tabs{
+        justify-content: center;
+    }
+
+    &__tab{
+        margin: 0 18px;
+    }
+  }
+
+
+}
+
+.promo:after{
+    content: '';
+    clear: both;
+    display: block;
+  }

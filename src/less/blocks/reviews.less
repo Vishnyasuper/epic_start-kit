@@ -1,0 +1,183 @@
+.reviews{
+
+   margin-top: 50px;
+
+  &__inner{
+    // position: relative;
+       width: 100%;
+    // padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../img/reviews_bg1200.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__inner:after{
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  &__title{
+    font-size: 26px;
+    font-family: @font_PT_SerifCaption;
+    font-weight: 400;
+    color: @reviews-color;
+    text-align: center;
+    padding-top: 65px;
+    padding-bottom: 57px;
+    margin: 0;
+  }
+
+  &__item{
+    background-color: @reviews-color;
+    position: relative;
+
+    margin: 0 auto;
+    padding-bottom: 30px;
+
+  }
+
+  &__item:nth-of-type(2n+1){
+    margin-bottom: 56px;
+  }
+
+  &__img{
+    position: absolute;
+    top: -26px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    text-align: center;
+    // margin-bottom: 34px;
+  }
+
+  &__img-skin{
+    // position: relative;
+    display: inline-block;
+    width: 82px;
+    height: 82px;
+    border: 2px solid @reviews-color;
+    // border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__photo{
+    width: 100%;
+  }
+
+  &__name{
+      display: block;
+      font-family: @font_FiraSans;
+      font-size: 14px;
+      font-weight: 500;
+      color: @link-header-color;
+      margin: 0 auto;
+      text-align: center;
+      // text-transform: uppercase;
+      // width: 100px;
+      padding-top: 70px;
+      // padding-top: 6px;
+  }
+
+  &__text{
+    display: block;
+    margin: 0 auto;
+    width: 240px;
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: @font_FiraSans;
+    font-size: 16px;
+    font-weight: 400;
+    color: @promo-health-color;
+  }
+
+  &__social{
+      margin: 10px;
+      width: 22px;
+      height: 13px;
+      // position: relative;
+  }
+
+  &__date-text{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-family: @font_FiraSans;
+    color: @link-header-color;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  &__date-number{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-family: @font_FiraSans;
+    color: @link-header-color;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  @media (min-width: @screen-sm-min-min){
+    &__item{
+        width: 480px;
+    }
+
+    &__text{
+        width: 400px;
+    }
+  }
+
+  @media (min-width: @screen-lg-min-min){
+    &__items{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    &__item{
+        // display: inline-block;
+    }
+
+    &__item:nth-of-type(2n+1){
+    margin-bottom: 0;
+  }
+  }
+
+}
+
+.socio{
+    position: relative;
+
+    &__item{
+      position: absolute;
+    }
+
+    &__item--vk{
+      background-image: url('../img/reviws__social_VK.jpg');
+    }
+}
+
+.btn{
+    &--border{
+      display: inline-block;
+      width: 150px;
+      margin: 50px auto;
+      border-radius: 20px;
+      font-family: @font_FiraSans;
+      font-weight: 500;
+      color: @reviews-color;
+      border: 2px solid @reviews-color;
+      padding: 9px;
+      text-transform: uppercase;
+    }
+}

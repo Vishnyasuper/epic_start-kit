@@ -1,0 +1,48 @@
+.gallery{
+  &__inner{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+  }
+
+  &__inner:after{
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  &__img{
+    overflow: hidden;
+  }
+
+  &__photo{
+    // padding: 55px 0 97px 0;
+    // background-image: url('../img/home1200__vacation-type.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+  }
+
+  &__items{
+    display: none;
+  }
+
+  // &__item{
+  //   display: none;
+  // }
+
+  @media (min-width: @screen-lg-min-min){
+    &__items{
+      display: inline-block;
+      width: @screen-lg;
+      padding: 0 10px;
+      display: flex;
+    }
+
+
+  }
+}
