@@ -84,14 +84,14 @@ gulp.task('js', function () {
       dirs.source + '/js/script.js',
     ])
     .pipe(concat('script.min.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(dirs.build + '/js'));
 });
 
 // ЗАДАЧА: Сборка всего
 gulp.task('build', gulp.series(                             // последовательно:
   'clean',                                                  // последовательно: очистку папки сборки
-  gulp.parallel('less', 'img'),                             // параллельно: компиляцию стилей, ...
+  gulp.parallel('less', 'img', 'js'),                             // параллельно: компиляцию стилей, ...
   'html'                                                    // последовательно: сборку разметки
 ));
 
@@ -123,8 +123,12 @@ gulp.task('serve', gulp.series('build', function() {
     gulp.series('img', reloader)                            // при изменении оптимизируем, копируем и обновляем в браузере
   );
 
-  // gulp.watch(blocks.js, gulp.series('js', reloader));
-}));
+  gulp.watch(                                               // следим за JS
+    dirs.source + '/js/*.js',
+    gulp.series('js', reloader)                            // при изменении пересобираем и обновляем в браузере
+  );
+
+ }));
 
 // ЗАДАЧА, ВЫПОЛНЯЕМАЯ ТОЛЬКО ВРУЧНУЮ: Отправка в GH pages (ветку gh-pages репозитория)
 gulp.task('deploy', function() {

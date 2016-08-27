@@ -1,10 +1,39 @@
 $(document).ready(function(){
-  $(".owl-carousel").owlCarousel({
-    items: 4,
-    nav: true,
-    navText: false,
-    loop: true
+
+  //Промо на главной
+
+  $("#promo").owlCarousel({
+    items: 1,
+    loop: true,
+
   });
+
+//Галерея на главной
+
+  var gallery = $('#gallery');
+  gallery.owlCarousel({
+    items: 4,
+    loop: true,
+    center: true,
+  });
+
+  // gallery.on('changed.owl.carousel', function(enent){
+
+  // })
+
+  $('#gallery img[data-large-img-url]').on('click', function(){
+    $('#gallery-large-img').attr('src', $(this).data('large-img-url'));
+  });
+   // $("#gallery-main").owlCarousel({
+
+   // });
+
+  // $(".owl-carousel").owlCarousel({
+  //   items: 4,
+  //   nav: true,
+  //   navText: false,
+  //   loop: true
+  // });
 });
 
 
