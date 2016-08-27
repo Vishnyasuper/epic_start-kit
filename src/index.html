@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <title>Green Valley</title>
     <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
+    <!--DEV  Вставка JS, который будет качать шрифт при первом посещении домена -->
+    <script>@@include('fonts/font_loading.js')</script>
+    <!--DEV  Резервное подключение CSS -файла с WOFF шрифтом на случай отключенного JS -->
+    <noscript><link rel="stylesheet" href="css/font_opensans_woff.css"></noscript>
 </head>
 <body>
 
@@ -293,6 +298,13 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/script.js"></script>
 
+
+
+
+
+<!--   @@include('img/sprite-svg.svg')
+
+  <svg width="24" height="24"><use xlink:href="#loupe"></use></svg> -->
 
 </body>
 </html>
