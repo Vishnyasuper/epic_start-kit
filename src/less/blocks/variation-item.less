@@ -1,0 +1,54 @@
+.variation-item{
+
+    padding: 0 20px 20px 20px;
+
+  &__img-skin{
+    margin: 0 auto;
+    width: 280px;
+    // height: 199px;
+    height: auto;
+    overflow: hidden;
+
+
+    img{
+        width: 100%;
+        max-height: none;
+    }
+  }
+
+  &__description{
+    background-color: @reviews-color;
+    padding: 40px 47px 47px 47px;
+    text-align: center;
+  }
+
+  &__name{
+    font-family: @font_PT_SerifRegular;
+    font-size: 26px;
+    color: @link-header-color;
+    font-weight: 400;
+  }
+
+  @media (min-width: @screen-sm-min-min){
+    // display: inline-block;
+    width: 353px;
+    padding: 0;
+    // margin-right: 18px;
+
+    &__img-skin{
+      width: 353px;
+    }
+
+   }
+
+   @media (min-width: @screen-lg-min-min){
+      margin-right: 20px;
+
+
+      &:nth-of-type(2n){
+        margin-right: 0;
+      }
+
+    }
+
+}
