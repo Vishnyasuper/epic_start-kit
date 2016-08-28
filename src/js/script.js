@@ -1,3 +1,42 @@
+// $(document).ready(function(){
+
+//   //Промо на главной
+
+//   $("#promo").owlCarousel({
+//     items: 1,
+//     loop: true,
+
+//   });
+
+// //Галерея на главной
+
+//   var gallery = $('#gallery');
+//   gallery.owlCarousel({
+//     items: 4,
+//     loop: true,
+//     center: true,
+//   });
+
+//   // gallery.on('changed.owl.carousel', function(enent){
+
+//   // })
+
+//   $('#gallery img[data-large-img-url]').on('click', function(){
+//     $('#gallery-large-img').attr('src', $(this).data('large-img-url'));
+//   });
+//    // $("#gallery-main").owlCarousel({
+
+//    // });
+
+//   // $(".owl-carousel").owlCarousel({
+//   //   items: 4,
+//   //   nav: true,
+//   //   navText: false,
+//   //   loop: true
+//   // });
+// });
+
+
 $(document).ready(function(){
 
   //Промо на главной
@@ -8,32 +47,27 @@ $(document).ready(function(){
 
   });
 
-//Галерея на главной
-
+  // Галерея на главной
   var gallery = $('#gallery');
   gallery.owlCarousel({
-    items: 4,
-    loop: true,
-    center: true,
+    items: 6,                 // одновременно 4 миниатюры
+    loop: true,               // включаем петлю
+    center: true,             // центрируем активную миниатюру
+    mouseDrag: true,         // отключаем перетаскивание мышом
   });
 
-  // gallery.on('changed.owl.carousel', function(enent){
-
-  // })
-
-  $('#gallery img[data-large-img-url]').on('click', function(){
-    $('#gallery-large-img').attr('src', $(this).data('large-img-url'));
+  // Следим за изменением в галерее (смена активного слайда)
+  gallery.on('changed.owl.carousel',function(property){
+    var current = property.item.index;
+    var src = gallery.find(".owl-item").eq(current).find("img").data('large-img-url');
+    $('#gallery-large-img').attr('src', src );
   });
-   // $("#gallery-main").owlCarousel({
 
-   // });
+  // Следим за кликами на мириатюрах галереи
+  $('#gallery img[data-large-img-url]').on('mousedown', function(){
+    $('#gallery-large-img').attr('src', $(this).data('large-img-url') );
+  });
 
-  // $(".owl-carousel").owlCarousel({
-  //   items: 4,
-  //   nav: true,
-  //   navText: false,
-  //   loop: true
-  // });
 });
 
 

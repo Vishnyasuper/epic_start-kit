@@ -1,0 +1,140 @@
+.map{
+  &__inner{
+    /*width: @screen-xs;*/
+    width: 100%;
+    padding: 15px 0 55px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+  }
+
+  &__inner:after{
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  &__title{
+    margin: 0;
+    padding-bottom: 35px;
+    text-align: center;
+  }
+
+  &__item-title{
+    position: relative;
+    margin: 0 auto;
+    padding-top: 88px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: 'Fira Sans';
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: @link-header-color;
+
+
+    &--bus:before{
+      content: '';
+      position: absolute;
+      display: inline-block;
+      top: 40px;
+      // left: 133px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      width: 50px;
+      height: 29px;
+      background-image: url('../img/map__bus-icon.jpg');
+    }
+
+    &--train:before{
+      content: '';
+      position: absolute;
+      display: inline-block;
+      top: 40px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      // left: 133px;
+      width: 58px;
+      height: 26px;
+      background-image: url('../img/map__train-icon.jpg');
+    }
+
+  }
+
+  &__item-description{
+    font-family: 'Fira Sans';
+    font-size: 16px;
+    color: @link-header-color;
+    font-weight: 400;
+    padding: 0 45px;
+    text-align: center;
+
+    p{
+      margin: 0;
+    }
+  }
+
+  &__item-number{
+    font-weight: 500;
+  }
+
+  @media (min-width: @screen-sm-min-min){
+    &__item-description{
+      padding: 0 95px;
+
+      &--train{
+        padding: 0 215px;
+      }
+    }
+
+  }
+
+  @media (min-width: @screen-lg-min-min){
+    &__item-inner{
+      .container-fixed();
+      // .make-row();
+    }
+    &__item{
+      // .make-lg-column(5);
+      // .make-lg-column-offset(1);
+      display: inline-block;
+      padding: 0;
+
+      &--bus{
+        .make-lg-column(5);
+        .make-lg-column-offset(1);
+
+      }
+
+      &--train{
+        // .make-lg-column-push(2);
+        .make-lg-column(4);
+        // .make-lg-column-offset(2);
+
+      }
+    }
+
+
+    &__item-description{
+      text-align: left;
+      padding: 0 20px;
+      &--bus{
+
+      }
+
+      &--train{
+        padding: 0 20px;
+      }
+    }
+
+
+
+  }
+
+}

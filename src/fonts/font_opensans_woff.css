@@ -16,3 +16,50 @@
   font-weight: bold;
   font-style: normal;
 }
+
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('../fonts/firasans/firasans.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('../fonts/firasans/firasansmedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PT Sans Caption';
+    src: url('../fonts/ptsanscaption/ptsanscaption.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PT Sans Caption';
+    src: url('../fonts/ptsanscaption/ptsanscaptionbold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PT Serif Caption';
+    src: url('../fonts/ptserifcaption/ptserifcaption.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PT Serif Caption';
+    src: url('../fonts/ptserifcaption/ptserifcaptionitalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PT Serif Regular';
+    src: url('../fonts/ptserif/ptserif.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}

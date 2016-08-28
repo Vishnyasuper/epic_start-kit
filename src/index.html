@@ -7,7 +7,7 @@
     <title>Green Valley</title>
     <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
+    <!-- <link rel="stylesheet" href="css/owl.carousel.css"> -->
     <!--DEV  Вставка JS, который будет качать шрифт при первом посещении домена -->
     <script>@@include('fonts/font_loading.js')</script>
     <!--DEV  Резервное подключение CSS -файла с WOFF шрифтом на случай отключенного JS -->
@@ -150,26 +150,21 @@
     </div>
 </div>
 
-<div id="promo" class="owl-carousel">
-  <div> Your content 111</div>
-  <div> Your content 222</div>
-</div>
-
 
       <section class="gallery">
         <div class="gallery__inner">
-          <div class="gallery__img"><img src="img/gallery.jpg" alt="Пример комнаты" class="gallery__photo"></div>
+          <div class="gallery__img"><div class="gallery__img-skin"><img src="img/gallery.jpg" alt="Пример комнаты" class="gallery__photo" id="gallery-large-img"></div></div>
 
-          <div id="gallery-large"></div>
-          <div id="gallery-main" class="gallery__items">
+          <!-- <div id="gallery-large"></div> -->
+          <div id="gallery" class="gallery__items owl-carousel">
 
-            <div class="gallery__item"><img src="img/gallery2.jpg" width="198" height="115"  alt="галерея"></div>
-            <div class="gallery__item"><img src="img/gallery3.jpg" width="198" height="115"  alt="галерея"></div>
-            <div class="gallery__item"><img data-large-img="img/gallery.jpg" width="198" height="115"  alt="галерея"></div>
-            <div class="gallery__item"><img data-large-img="img/gallery4.jpg" width="198" height="115"  alt="галерея"></div>
-            <div class="gallery__item"><img src="img/gallery5.jpg" width="198" height="115"  alt="галерея"></div>
-            <div class="gallery__item"><img src="img/gallery6.jpg" width="198" height="115"  alt="галерея"></div>
-            <div class="gallery__item"><img src="img/gallery7.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery2.jpg" src="img/gallery2.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery3.jpg" src="img/gallery3.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery.jpg" src="img/gallery.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery4.jpg" src="img/gallery4.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery5.jpg" src="img/gallery5.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery6.jpg" src="img/gallery6.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery7.jpg" src="img/gallery7.jpg" width="198" height="115"  alt="галерея"></div>
           </div>
         </div>
       </section>
@@ -180,7 +175,7 @@
             <div class="reviews__item">
 
               <div class="reviews__img">
-                <div class="reviews__img-skin"><img src="img/reviews__avatar1.jpg" alt="Екатерина В." width="82" height="82">
+                <div class="reviews__img-skin"><img src="img/reviews__avatar1.jpg" alt="Екатерина В." width="82" height="82" class="reviews__photo">
                 </div>
               </div>
 
@@ -194,7 +189,7 @@
             <div class="reviews__item">
 
               <div class="reviews__img">
-                <div class="reviews__img-skin"><img src="img/reviews__avatar2.jpg" alt="Екатерина В." width="82" height="82">
+                <div class="reviews__img-skin"><img src="img/reviews__avatar2.jpg" alt="Екатерина В." width="82" height="82" class="reviews__photo">
                 </div>
               </div>
 
@@ -239,38 +234,46 @@
       <section class="map">
         <div class="map__inner">
           <h1 class="map__title">Как до нас добраться</h1>
-          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7ZN2j-3YMZFAgxWc2PWvvX05gnjsqFEa&width=100%&height=500&lang=ru_RU&sourceType=constructor&scroll=true"></script>
-          <div class="map__item">
-            <div class="map__item-icon  map__item-icon--bus"></div>
-            <h2 class="map__item-title">Автобусы</h2>
-            <div class="map__item-number">
-              <p>№ 211 от станции метро «Черная речка» до остановки «Санаторий Репино»</p>
-              <p>№ 305К от станции метро «Старая деревня»</p>
-              <p>№ 680К от станции метро «Проспект Просвещения»</p>
-              <p>№ 400К от станции метро «Площадь Ленина»</p>
+          <!-- <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7ZN2j-3YMZFAgxWc2PWvvX05gnjsqFEa&width=100%&height=500&lang=ru_RU&sourceType=constructor&scroll=true"></script> -->
+          <div class="map__item-inner">
+            <div class="map__item map__item--bus">
+              <!-- <div class="map__item-icon  map__item-icon--bus"></div> -->
+              <h2 class="map__item-title map__item-title--bus">Автобусы</h2>
+              <div class="map__item-description">
+                <p><span class="map__item-number">№  211</span class="map__item-number">  от станции метро «Черная речка» до остановки «Санаторий Репино»</p>
+                <p><span class="map__item-number">№ 305К</span class="map__item-number"> от станции метро «Старая деревня»</p>
+                <p><span class="map__item-number">№ 680К</span class="map__item-number"> от станции метро «Проспект Просвещения»</p>
+                <p><span class="map__item-number">№ 400К</span class="map__item-number"> от станции метро «Площадь Ленина»</p>
+              </div>
             </div>
-          </div>
-          <div class="map__item">
-            <div class="map__item-icon  map__item-icon--train"></div>
-            <h2 class="map__item-title">Электропоезд</h2>
-            <div class="map__item-number">
-              <p>№ Электропоезд Выборгского направления от Финляндского вокзала Санкт-Петербурга до платформы «Репино»</p>
+            <div class="map__item map__item--train">
+              <!-- <div class="map__item-icon  map__item-icon--train"></div> -->
+              <h2 class="map__item-title map__item-title--train">Электропоезд</h2>
+              <div class="map__item-description map__item-description--train">
+                <p>Электропоезд Выборгского направления от Финляндского вокзала Санкт-Петербурга до платформы «Репино»</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
       <section class="variation-rest">
         <div class="variation-rest__inner">
-          <h1 class="variation-rest__title">Где вы хотите отдохнуть</h1>
-          <div class="variation-item variation-item--rest">
-            <div class="variation-item__img" style="background-image: url();"></div>
-            <div class="variation-item__name">В отеле</div>
-            <div class="variation-item">от<span>4000</span>руб./сутки</div>
-          </div>
-          <div class="variation-item  variation-item--rest">
-            <div class="variation-item__img" style="background-image: url();"></div>
-            <div class="variation-item__name">В коттедже</div>
-            <div class="variation-item__cost">от<span>6800</span>руб./сутки</div>
+          <h1 class="variation-rest__title">Где вы хотите отдохнуть?</h1>
+          <div class="variation-rest__items">
+            <div class="variation-item variation-item--rest">
+              <div class="variation-item__img"><div class="variation-item__img-skin"><img src="img/variation-rest__item1.jpg" alt="Отель"></div></div>
+              <div class="variation-item__description">
+                <div class="variation-item__name">В отеле</div>
+                <div class="room-cost">от<span> 4000 </span>руб./сутки</div>
+              </div>
+            </div>
+            <div class="variation-item  variation-item--rest">
+              <div class="variation-item__img"><div class="variation-item__img-skin"><img src="img/variation-rest__item2.jpg" alt="Коттедж"></div></div>
+              <div class="variation-item__description">
+                <div class="variation-item__name">В коттедже</div>
+                <div class="room-cost">от<span> 6800 </span>руб./сутки</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -278,26 +281,28 @@
       <footer class="page-footer">
         <div class="page-footer__inner">
           <div class="page-footer__address">г.Санкт-Петербург<br/>
-            Приморское ш.600</div>
-            <a href="" class="main-logo"><img src="" alt=""></a>
+            Приморское ш.60
+          </div>
+          <div class="page-footer__logo">
+            <a href="" class="main-logo"><img src="img/logo.png" alt="Логотип"></a>
             <div class="socio">
               <a href="" class="socio__item socio__item--vk"></a>
               <a href="" class="socio__item socio__item--tw"></a>
               <a href="" class="socio__item socio__item--fb"></a>
             </div>
+          </div>
 
-            <div class="page-footer__contact">
-              <a href="tel:+7 812 777-55-88" class="page-footer__phone"></a>
-              <a href="mailto:info@greenvalley.ru" class="page-footer__email"></a>
-            </div>
+          <div class="page-footer__contact">
+            <a href="tel:+7 812 777-55-88" class="page-footer__phone">+7 812 777-55-88</a>
+            <a href="mailto:info@greenvalley.ru" class="page-footer__email">info@greenvalley.ru</a>
+          </div>
 
           </div>
       </footer>
 
-<script src="js/jquery-2.2.3.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/script.js"></script>
-
+<!-- <script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/owl.carousel.min.js"></script> -->
+<script src="js/script.min.js"></script>
 
 
 
