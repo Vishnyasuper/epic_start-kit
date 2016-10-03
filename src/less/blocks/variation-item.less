@@ -1,6 +1,8 @@
 .variation-item{
 
-    padding: 0 20px 20px 20px;
+    // padding: 0 10px 20px 10px;
+    padding-bottom: 20px;
+    margin: 0 10px;
 
   &__img-skin{
     margin: 0 auto;
@@ -43,12 +45,26 @@
 
    @media (min-width: @screen-lg-min-min){
       margin-right: 20px;
+      width: 380px;
 
+      &__img-skin{
+        width: 380px;
+      }
 
       &:nth-of-type(2n){
         margin-right: 0;
       }
 
     }
+
+  &--singleroom{
+    @media (min-width: @screen-lg-min-min){
+      margin: 0;
+
+      &:nth-of-type(2n+1){
+        margin-right: 0;
+      }
+    }
+  }
 
 }

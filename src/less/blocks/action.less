@@ -1,9 +1,10 @@
 .action{
     &__inner{
+      .container-large-fixed();
       /*width: @screen-xs;*/
-      width: 100%;
+      // width: 100%;
       padding: 55px 0;
-      margin: 0 auto;
+      // margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
@@ -12,11 +13,11 @@
 
     }
 
-    &__inner:after{
-      content: '';
-      clear: both;
-      display: block;
-    }
+    // &__inner:after{
+    //   content: '';
+    //   clear: both;
+    //   display: block;
+    // }
 
     &__title{
       font-family: @font_PT_SerifCaption;
@@ -85,7 +86,7 @@
         padding-top: 5px;
     }
 
-   @media (min-width: @screen-lg-min-min){
+   @media (min-width: @screen-lg){
     &__item{
       padding-top: 200px;
       padding-bottom: 20px;

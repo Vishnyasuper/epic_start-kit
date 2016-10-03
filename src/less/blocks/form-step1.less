@@ -1,0 +1,122 @@
+.form-step1{
+  &__inner{
+    .container-large-fixed();
+    padding: 50px 20px;
+    background-color: @form-bg-color;
+  }
+
+  &__number{
+    display: block;
+    font-family: @font_FiraSans;
+    font-weight: 500;
+    font-size: 14px;
+    color: @form-number-color;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__name{
+    display: block;
+    font-family: @font_PT_SerifRegular;
+    font-size: 26px;
+    font-weight: 400;
+    color: @link-header-color;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  &__date-entry{
+    display: block;
+    font-family: @font_FiraSans;
+    font-size: 14px;
+    font-weight: 400;
+    color: @form-date-color;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 17px;
+  }
+
+  &__date-exit{
+    display: block;
+    font-family: @font_FiraSans;
+    font-size: 14px;
+    font-weight: 400;
+    color: @form-date-color;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 17px;
+  }
+
+  &__entry{
+    text-align: center;
+    padding-bottom: 37px;
+    input{
+      width: 180px;
+      padding: 15px 0;
+      text-align: center;
+    }
+  }
+
+  &__exit{
+    text-align: center;
+    input{
+        width: 180px;
+        padding: 15px 0;
+        text-align: center;
+    }
+  }
+
+  @media (min-width: @screen-sm){
+    form{
+      text-align: center;
+    }
+
+    &__entry{
+      display: inline-block;
+      margin-right: 10px;
+      padding: 0;
+    }
+
+    &__exit{
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  @media (min-width: @screen-lg){
+    form{
+      width: 380px;
+      background-color: @reviews-color;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 26px;
+
+    }
+
+    &__entry{
+
+      width: 190px;
+      padding-right: 26px;
+      padding-bottom: 28px;
+      margin: 0;
+      border-right: 1px solid @single-room-border-color;
+      input{
+        width: 134px;
+      }
+    }
+
+    &__exit{
+
+      width: 190px;
+      padding-left: 26px;
+      padding-bottom: 28px;
+      margin: 0;
+      input{
+        width: 134px;
+      }
+    }
+  }
+
+}

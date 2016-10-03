@@ -17,22 +17,28 @@
 
   <header class="page-header">
       <div class="page-header__inner">
-        <a href="" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
+        <div class="page-header__logo">
+          <a href="" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
+        </div>
         <nav class="main-nav">
-          <ul class="main-nav__list">
+          <ul class="main-nav__list" id="nav">
               <li class="main-nav__item"><a href="" class="main-nav__link">Номера</a></li>
               <li class="main-nav__item  main-nav__item--active"><a href="" class="main-nav__link">Коттедж</a></li>
               <li class="main-nav__item"><a href="" class="main-nav__link">Ресторан</a></li>
               <li class="main-nav__item"><a href="" class="main-nav__link">Отдых</a></li>
               <li class="main-nav__item"><a href="" class="main-nav__link">Контакты</a></li>
           </ul>
-          <span class="main-nav__toggler"><span></span></span>
+          <!-- <span class="main-nav__toggler"><span></span></span> -->
+          <a href="" class="main-nav__toggler" id="toggler"><span></span></a>
+
         </nav>
         <div class="page-header__contact">
             <a href="tel:+7 812 777-55-88" class="page-header__phone">+7 812 777-55-88</a>
             <span class="page-header__address">г.Санкт-Петербург, Приморское ш.600</span>
         </div>
-        <a href="" class="btn btn__skin"><div class="btn--icon">Забронировать</div></a>
+        <div class="page-header__btn">
+        <a href="" class="btn btn--icon">Забронировать</a>
+        </div>
       </div>
   </header>
 
@@ -234,7 +240,7 @@
       <section class="map">
         <div class="map__inner">
           <h1 class="map__title">Как до нас добраться</h1>
-          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7ZN2j-3YMZFAgxWc2PWvvX05gnjsqFEa&width=100%&height=500&lang=ru_RU&sourceType=constructor&scroll=true"></script>
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7ZN2j-3YMZFAgxWc2PWvvX05gnjsqFEa&width=100%&height=500&lang=ru_RU&sourceType=constructor&scroll=false"></script>
           <div class="map__item-inner">
             <div class="map__item map__item--bus">
               <!-- <div class="map__item-icon  map__item-icon--bus"></div> -->
@@ -261,14 +267,20 @@
           <h1 class="variation-rest__title">Где вы хотите отдохнуть?</h1>
           <div class="variation-rest__items">
             <div class="variation-item variation-item--rest">
-              <div class="variation-item__img"><div class="variation-item__img-skin"><img src="img/variation-rest__item1.jpg" alt="Отель"></div></div>
+              <div class="variation-item__img">
+                <div class="variation-item__img-skin"><img src="img/variation-rest__item1.jpg" alt="Отель">
+                </div>
+              </div>
               <div class="variation-item__description">
                 <div class="variation-item__name">В отеле</div>
                 <div class="room-cost">от<span> 4000 </span>руб./сутки</div>
               </div>
             </div>
             <div class="variation-item  variation-item--rest">
-              <div class="variation-item__img"><div class="variation-item__img-skin"><img src="img/variation-rest__item2.jpg" alt="Коттедж"></div></div>
+              <div class="variation-item__img">
+                <div class="variation-item__img-skin"><img src="img/variation-rest__item2.jpg" alt="Коттедж">
+                </div>
+              </div>
               <div class="variation-item__description">
                 <div class="variation-item__name">В коттедже</div>
                 <div class="room-cost">от<span> 6800 </span>руб./сутки</div>

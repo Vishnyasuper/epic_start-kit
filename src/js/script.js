@@ -74,6 +74,13 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 
+  var toggler = document.getElementById('toggler');
+toggler.onclick = function(e){
+  e.preventDefault();
+  toggler.classList.toggle('main-nav__toggler--close');
+  document.getElementById('nav').classList.toggle('main-nav__list--visible');
+}
+
 
     function anchorScroll(boxAnchorLink){
         $(boxAnchorLink + ' a').on('click', function(e){

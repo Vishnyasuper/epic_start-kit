@@ -1,0 +1,153 @@
+.single-room{
+  &__inner{
+    .container-large-fixed();
+    border-top: 1px solid @single-room-border-color;
+    margin-bottom: 15px;
+  }
+
+  &__title{
+    padding: 50px 0 15px 0;
+    font-family: @font_PT_SerifCaption;
+    font-weight: 400;
+    font-size: 30px;
+    color: @promo-health-color;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__cost{
+    display: block;
+    text-align: center;
+    padding-bottom: 23px;
+  }
+
+  &__img-skin{
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        max-height: none;
+    }
+  }
+
+  &__description{
+    padding: 45px 20px;
+
+    p{
+      padding-bottom: 35px;
+      font-family: @font_FiraSans;
+      font-weight: 400;
+      font-size: 16px;
+      color: @link-header-color;
+    }
+
+    ul{
+      padding: 0;
+      margin: 0;
+    }
+
+    li{
+      font-family: @font_FiraSans;
+      font-size: 16px;
+      font-weight: 400;
+      color: @link-header-color;
+      list-style: none;
+    }
+  }
+
+  &__item-title{
+    padding: 0;
+    margin: 0;
+    font-family: @font_PT_SerifRegular;
+    font-weight: 400;
+    font-size: 26px;
+    color: @link-header-color;
+    padding-bottom: 25px;
+  }
+
+  &__list{
+    padding: 0 0 35px 0;
+  }
+
+  &__list-style{
+    color: @promo-tab-line-color;
+  }
+
+  &__btn{
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  @media (min-width: @screen-sm){
+    &__inner{
+      margin-bottom: 70px;
+    }
+
+    &__description{
+      ul{
+        margin: 0 85px 0 0;
+      }
+    }
+
+    &__list-item1{
+      display: inline-block;
+      // margin-right: 0 85px 0 0;
+      // padding: 0;
+    }
+
+    &__list-item2{
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  @media (min-width: @screen-lg){
+    &__inner{
+      padding: 0 10px;
+      margin-bottom: 50px;
+    }
+
+    &__item-inner{
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 50px 0 100px;
+    }
+
+    &__description{
+      padding: 0 40px 0 0;
+    }
+
+    &__cost{
+      padding: 0;
+    }
+  }
+
+  &__variation{
+
+  }
+
+  &__variation-inner{
+    .container-large-fixed();
+    padding: 50px 10px;
+    background-color: @single-room-variation-color;
+  }
+
+  @media (min-width: @screen-sm){
+    &__variation-inner{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // padding: 50px 10px 50px 10px;
+    }
+  }
+
+  @media (min-width: @screen-lg){
+    &__variation-inner{
+      // padding: 50px 10px;
+    }
+
+  }
+
+}

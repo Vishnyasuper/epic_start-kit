@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <title>Form</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/owl.carousel.css"> -->
+    <!--DEV  Вставка JS, который будет качать шрифт при первом посещении домена -->
+    <script>@@include('fonts/font_loading.js')</script>
+    <!--DEV  Резервное подключение CSS -файла с WOFF шрифтом на случай отключенного JS -->
+    <noscript><link rel="stylesheet" href="css/font_opensans_woff.css"></noscript>
 </head>
 <body>
-<header class="page-header">
+  <header class="page-header">
       <div class="page-header__inner">
-        <a href="" class="main-logo"><img src="img/logo.png" alt=""></a>
+        <div class="page-header__logo">
+          <a href="" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
+        </div>
         <nav class="main-nav">
-          <ul class="main-nav__list">
+          <ul class="main-nav__list" id="nav">
               <li class="main-nav__item"><a href="" class="main-nav__link">Номера</a></li>
               <li class="main-nav__item  main-nav__item--active"><a href="" class="main-nav__link">Коттедж</a></li>
-              <li class="main-nav__item"><a href="" class="main-nav__link"></a>Ресторан</li>
-              <li class="main-nav__item"><a href="" class="main-nav__link"></a>Отдых</li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Ресторан</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Отдых</a></li>
               <li class="main-nav__item"><a href="" class="main-nav__link">Контакты</a></li>
           </ul>
-          <span class="main-nav__toggler"><span></span></span>
+          <!-- <span class="main-nav__toggler"><span></span></span> -->
+          <a href="" class="main-nav__toggler" id="toggler"><span></span></a>
+
         </nav>
         <div class="page-header__contact">
-            <a href="tel:++7 812 777-55-88" class="page-header__phone">+7 812 777-55-88</a>
+            <a href="tel:+7 812 777-55-88" class="page-header__phone">+7 812 777-55-88</a>
             <span class="page-header__address">г.Санкт-Петербург, Приморское ш.600</span>
         </div>
-        <a href="" class="btn  btn--icon">Забронировать</a>
+        <div class="page-header__btn">
+        <a href="" class="btn btn--icon">Забронировать</a>
+        </div>
       </div>
   </header>
   <main>
   <div class="form-name">
     <div class="form-name__inner">
       <h1 class="form-name__title">Бронирование</h1>
-      <p>Чтобы забронировать номер в отеле или коттедж, заполните форму ниже или просто позвоните по телефону: <a href="tel:+7 812 777-55-88">+7 812 777-55-88</a></p>
+      <p class="form-name__description">Чтобы забронировать номер в отеле или коттедж, заполните форму ниже или просто позвоните <br/&> по телефону: <a href="tel:+7 812 777-55-88">+7 812 777-55-88</a></p>
     </div>
   </div>
   <div class="form-step1">
@@ -45,7 +56,7 @@
                 <input type="text" placeholder="06.08.2016" id="datepicker"/>
             </div>
             <div class="form-step1__exit">
-                <span class="form-step1__date-exit">дата въезда</span>
+                <span class="form-step1__date-exit">дата выезда</span>
                 <input type="text" placeholder="06.08.2016" id="datepicker"/>
             </div>
         </form>
@@ -160,22 +171,27 @@
   </div>
   </main>
   <footer class="page-footer">
-      <div class="page-footer__inner">
-        <div class="page-footer__address">г.Санкт-Петербург<br/>
-            Приморское ш.600</div>
-            <a href="" class="main-logo"><img src="" alt=""></a>
-            <div class="socio">
-                <a href="" class="socio__item socio__item--vk"></a>
-                <a href="" class="socio__item socio__item--tw"></a>
-                <a href="" class="socio__item socio__item--fb"></a>
-            </div>
-
-            <div class="page-footer__contact">
-                <a href="tel:+7 812 777-55-88" class="page-footer__phone"></a>
-                <a href="mailto:info@greenvalley.ru" class="page-footer__email"></a>
-            </div>
-
+    <div class="page-footer__inner">
+      <div class="page-footer__address">г. Санкт-Петербург<br/>
+        Приморское ш.60
+      </div>
+      <div class="page-footer__logo">
+        <a href="" class="main-logo"><img src="img/logo.png" alt="Логотип"></a>
+        <div class="socio">
+          <a href="" class="socio__item socio__item--vk"></a>
+          <a href="" class="socio__item socio__item--tw"></a>
+          <a href="" class="socio__item socio__item--fb"></a>
         </div>
+      </div>
+
+      <div class="page-footer__contact">
+        <a href="tel:+7 812 777-55-88" class="page-footer__phone">+7 812 777-55-88</a>
+        <a href="mailto:info@greenvalley.ru" class="page-footer__email">info@greenvalley.ru</a>
+      </div>
+
+    </div>
+
   </footer>
+  <script src="js/script.min.js"></script>
 </body>
 </html>

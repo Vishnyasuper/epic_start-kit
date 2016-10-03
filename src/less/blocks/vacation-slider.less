@@ -1,20 +1,21 @@
 .vacation-slider{
 
   &__inner{
+    .container-large-fixed();
     /*width: @screen-xs;*/
-    width: 100%;
-    // padding: 0 20px;
-    margin: 0 auto;
+    // width: 100%;
+    // // padding: 0 20px;
+    // margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  &__inner:after{
-    content: '';
-    clear: both;
-    display: block;
-  }
+  // &__inner:after{
+  //   content: '';
+  //   clear: both;
+  //   display: block;
+  // }
 
   &__slide{
     padding: 19px 0 162px 0;
@@ -63,7 +64,7 @@
     display: inline-block;
   }
 
-  @media (min-width: @screen-sm-min-min) {
+  @media (min-width: @screen-sm) {
 
     &__inner{
       width: 100%;
@@ -104,7 +105,7 @@
 
   }
 
-  @media (min-width: @screen-lg-min-min){
+  @media (min-width: @screen-lg){
 
     &__inner{
       flex-direction: column;
@@ -175,18 +176,4 @@
   }
 
 
-}
-
-.vacation-type{
-
-  &__slide-type{
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-
-  &__list{
-
-
-  }
 }

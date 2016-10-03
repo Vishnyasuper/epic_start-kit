@@ -1,18 +1,19 @@
 .gallery{
   &__inner{
-    width: 100%;
-    margin: 0 auto;
+    .container-large-fixed();
+    // width: 100%;
+    // margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
   }
 
-  &__inner:after{
-    content: '';
-    clear: both;
-    display: block;
-  }
+  // &__inner:after{
+  //   content: '';
+  //   clear: both;
+  //   display: block;
+  // }
 
   &__img{
     text-align: center;
@@ -43,7 +44,7 @@
     display: none;
   }
 
-  @media (min-width: @screen-sm-min-min){
+  @media (min-width: @screen-sm){
 
     &__img-skin{
       overflow: hidden;
@@ -62,7 +63,7 @@
   }
 
 
-  @media (min-width: @screen-lg-min-min){
+  @media (min-width: @screen-lg){
 
     &__inner{
 

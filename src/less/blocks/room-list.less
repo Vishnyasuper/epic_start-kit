@@ -1,0 +1,41 @@
+.room-list{
+  &__inner{
+    .container-large-fixed();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../img/room-list__bg.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 65px 0;
+  }
+
+  &__title{
+    font-family: @font_PT_SerifCaption;
+    color: @reviews-color;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+
+  }
+
+  &__description{
+    display: none;
+  }
+
+  @media (min-width: @screen-sm){
+
+    &__inner{
+      padding: 45px 0;
+    }
+
+    &__description{
+      display: inline-block;
+      font-family: @font_FiraSans;
+      font-size: 18px;
+      color: @reviews-color;
+      text-align: center;
+    }
+  }
+
+}

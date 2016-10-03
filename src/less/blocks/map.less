@@ -1,9 +1,10 @@
 .map{
   &__inner{
+    .container-large-fixed();
     /*width: @screen-xs;*/
-    width: 100%;
+    // width: 100%;
     padding: 15px 0 55px 0;
-    margin: 0 auto;
+    // margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -12,11 +13,11 @@
 
   }
 
-  &__inner:after{
-    content: '';
-    clear: both;
-    display: block;
-  }
+  // &__inner:after{
+  //   content: '';
+  //   clear: both;
+  //   display: block;
+  // }
 
   &__title{
     margin: 0;
@@ -84,7 +85,7 @@
     font-weight: 500;
   }
 
-  @media (min-width: @screen-sm-min-min){
+  @media (min-width: @screen-sm){
     &__item-description{
       padding: 0 95px;
 
@@ -95,7 +96,7 @@
 
   }
 
-  @media (min-width: @screen-lg-min-min){
+  @media (min-width: @screen-lg){
     &__item-inner{
       .container-fixed();
       // .make-row();

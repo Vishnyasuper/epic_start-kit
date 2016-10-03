@@ -1,0 +1,51 @@
+.form-name{
+  &__inner{
+    .container-large-fixed();
+    border-top: 1px solid @single-room-border-color;
+    padding: 70px 20px 45px 20px;
+
+  }
+
+  &__title{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: @font_PT_SerifCaption;
+    font-size: 26px;
+    font-weight: 400;
+    padding-bottom: 20px;
+  }
+
+  &__description{
+    font-family: @font_FiraSans;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    padding: 0 20px;
+
+    a{
+      font-family: @font_FiraSans;
+      font-weight: 500;
+      font-size: 16px;
+      color: @form-name-color;
+      text-decoration: none;
+    }
+  }
+
+  @media (min-width: @screen-sm){
+
+    &__description{
+      padding: 0 164px;
+    }
+  }
+
+  @media (min-width: @screen-lg){
+    &__inner{
+      padding: 70px 10px 45px 10px;
+    }
+
+    &__description{
+      padding: 0 390px;
+    }
+  }
+}

@@ -2,6 +2,14 @@
 //
 // Generate semantic grid columns with these mixins.
 
+//My mixin &__inner
+.container-large-fixed(@gutter: @grid-gutter-width) {
+  margin: 0 auto;
+  width: 100%;
+  max-width: @screen-lg;
+  &:extend(.clearfix all);
+}
+
 // Centered container element
 .container-fixed(@gutter: @grid-gutter-width) {
   margin-right: auto;

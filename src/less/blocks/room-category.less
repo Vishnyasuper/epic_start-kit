@@ -1,0 +1,124 @@
+.room-category{
+  &__inner{
+    .container-large-fixed();
+    background-color: @reviews-color;
+
+  }
+
+  &__title{
+    padding: 45px 0 40px 0;
+    font-family: @font_PT_SerifCaption;
+    font-weight: 400;
+    font-size: 30px;
+    color: @promo-health-color;
+    text-align: center;
+  }
+
+  &__item{
+    margin-bottom: 50px;
+  }
+
+  &__item:last-child{
+    margin-bottom: 0;
+  }
+
+  &__description{
+    background-color: @room-category-color;
+    text-align: center;
+  }
+
+  &__name{
+    font-family: @font_PT_SerifRegular;
+    font-weight: 400;
+    font-size: 26px;
+    color: @link-header-color;
+    margin: 0;
+    padding: 40px 0 0 0;
+  }
+
+  &__text{
+    font-family: @font_FiraSans;
+    font-weight: 400;
+    font-size: 16px;
+    color: @link-header-color;
+    padding: 0 20px 33px 20px;
+    text-align: left;
+  }
+
+  &__item-img{
+    margin: 30px 0 40px 0;
+  }
+
+  &__item-img-skin{
+
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        max-height: none;
+    }
+  }
+
+
+  &__btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__book{
+
+    padding: 0;
+    font-family: @font_FiraSans;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #ff7435;
+    color: #ffffff;
+    border-radius: 18px;
+    line-height: 18px;
+    padding: 10px 34px;
+    margin: 0 auto 25px;
+  }
+
+  &__about{
+    font-family: @font_FiraSans;
+    font-size: 14px;
+    font-weight: 500;
+    color: @link-header-color;
+    text-transform: uppercase;
+    border-bottom: 2px dotted @link-header-color;
+    margin: 0 auto 33px;
+  }
+
+  @media (min-width: @screen-sm){
+    &__btn{
+      display: inline-block;
+      margin-bottom: 33px;
+    }
+
+    &__book{
+      display: inline-block;
+      margin: 0;
+      margin-right: 34px;
+    }
+
+    &__about{
+      display: inline-block;
+      margin: 0;
+      margin-left: 34px;
+    }
+
+    &__text{
+      padding-left: 174px;
+      padding-right: 174px;
+    }
+
+    &__item-img-skin{
+      width: 580px;
+    }
+  }
+
+}
