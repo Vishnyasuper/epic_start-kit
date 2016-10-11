@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <title>Single Room</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>// Этот скрипт будет размещён в <head> над всеми внешними объявлениями стилей (link[rel=stylesheet])
+function loadFont(fontName, woffUrl, woff2Url) {
+  // 0. Многие неподдерживаемые браузеры должны останавливать работу тут.
+  var nua = navigator.userAgent;
+  var noSupport = !window.addEventListener // IE8 и ниже
+        || (nua.match(/(Android (2|3|4.0|4.1|4.2|4.3))|(Opera (Mini|Mobi))/) && !nua.match(/Chrome/)) // Android Stock Browser до 4.4 и Opera Mini
+
+  if (noSupport) {
+    return;
+  }
+
+  // 1. Настраиваем localStorage
+  var loSto = {};
+  try {
+    // Устанавливаем вспомогательную переменную для помощи с localStorage,
+    // например, для случаев когда cookies отключены и браузер не даёт к ним доступа.
+    // Иначе могут быть получены исключения, которые полностью остановят загрузку шрифтов.
+    loSto = localStorage || {};
+  } catch(ex) {}
+
+  var localStoragePrefix = 'x-font-' + fontName;
+  var localStorageUrlKey = localStoragePrefix + 'url';
+  var localStorageCssKey = localStoragePrefix + 'css';
+  var storedFontUrl = loSto[localStorageUrlKey];
+  var storedFontCss = loSto[localStorageCssKey];
+
+  // 2. Создаём элемент <style>, который мы используем для вставки шрифта, закодированного в base64.
+  var styleElement = document.createElement('style');
+  styleElement.rel = 'stylesheet';
+  document.head.appendChild(styleElement);
+  // Из-за ошибок IE9 установка styleElement.textContent должна быть после этой строки.
+
+  // 3. Проверяем, находится ли шрифт уже в localStorage и последней ли он версии.
+  if (storedFontCss && (storedFontUrl === woffUrl || storedFontUrl === woff2Url)) {
+    // css до сих пор в localStorage
+    // и были загружены из одного из текущих адресов
+
+    // 4. Применяем стили шрифта.
+    styleElement.textContent = storedFontCss;
+  } else {
+    // Данных нет, или они загружены с устаревшего URL,
+    // поэтому мы должны загрузить их снова.
+
+    // 5. Проверяем поддержку WOFF2 чтобы узнать, какой URL использовать.
+    var url = (woff2Url && supportsWoff2())
+    ? woff2Url // WOFF2 URL передан в функцию и поддерживается.
+    : woffUrl; // Поддерживается только WOFF.
+
+    // 6. Получаем данные с сервера.
+    var request = new XMLHttpRequest();
+    request.open('GET', url);
+    request.onload = function() {
+      if (request.status >= 200 && request.status < 400) {
+        // 7. Обновляем localStorage новыми данными и применяем стили шрифта.
+        loSto[localStorageUrlKey] = url;
+        loSto[localStorageCssKey] = styleElement.textContent = request.responseText;
+      }
+    };
+    request.send();
+  }
+
+  function supportsWoff2() {
+    // https://github.com/filamentgroup/woff2-feature-test
+    if( !( "FontFace" in window ) ) {
+      return false;
+    }
+
+    var f = new FontFace('t', 'url( "data:application/font-woff2;base64,d09GMgABAAAAAADcAAoAAAAAAggAAACWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABk4ALAoUNAE2AiQDCAsGAAQgBSAHIBtvAcieB3aD8wURQ+TZazbRE9HvF5vde4KCYGhiCgq/NKPF0i6UIsZynbP+Xi9Ng+XLbNlmNz/xIBBqq61FIQRJhC/+QA/08PJQJ3sK5TZFMlWzC/iK5GUN40psgqvxwBjBOg6JUSJ7ewyKE2AAaXZrfUB4v+hze37ugJ9d+DeYqiDwVgCawviwVFGnuttkLqIMGivmDg" ) format( "woff2" )', {});
+    f.load()['catch'](function() {});
+
+    return f.status == 'loading';
+  }
+}
+
+
+// Вызываем функцию подгрузки
+loadFont(
+    'Open Sans_my',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'Fira Sans',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Sans Caption',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Serif Caption',                      // название шрифта
+   '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Serif Regular',                      // название шрифта
+   '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );</script>
+    <noscript><link rel="stylesheet" href="css/font_opensans_woff.css"></noscript>
+</head>
+<body>
+  <header class="page-header">
+      <div class="page-header__inner">
+        <div class="page-header__logo">
+          <a href="" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
+        </div>
+        <nav class="main-nav">
+          <ul class="main-nav__list" id="nav">
+              <li class="main-nav__item"><a href="" class="main-nav__link">Номера</a></li>
+              <li class="main-nav__item  main-nav__item--active"><a href="" class="main-nav__link">Коттедж</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Ресторан</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Отдых</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Контакты</a></li>
+          </ul>
+          <!-- <span class="main-nav__toggler"><span></span></span> -->
+          <a href="" class="main-nav__toggler" id="toggler"><span></span></a>
+
+        </nav>
+        <div class="page-header__contact">
+            <a href="tel:+7 812 777-55-88" class="page-header__phone">+7 812 777-55-88</a>
+            <span class="page-header__address">г.Санкт-Петербург, Приморское ш.600</span>
+        </div>
+        <div class="page-header__btn">
+        <a href="" class="btn btn--icon">Забронировать</a>
+        </div>
+      </div>
+  </header>
+  <main>
+    <section class="single-room">
+      <div class="single-room__inner">
+        <h1 class="single-room__title">Эконом</h1>
+        <span class="single-room__cost room-cost">от <span>3400</span>руб./сутки</span>
+        <div class="single-room__item-inner">
+          <div class="single-room__img">
+            <div class="single-room__img-skin">
+              <img src="img/single-room_economy1.jpg" alt"Эконом">
+            </div>
+          </div>
+          <div class="single-room__description">
+            <h2 class="single-room__item-title">О номере</h2>
+            <p>В отеле 30 таких номеров площадью от 16 до 20 кв.м. Рассчитаны<br/> на проживание 1-2 человек. Часть номеров с видом на Финский залив.</p>
+            <h2 class="single-room__item-title">Удобства</h2>
+            <div class="single-room__list">
+              <ul class="single-room__list-item1">
+                <li><span class="single-room__list-style">> </span>WI-FI</li>
+                <li><span class="single-room__list-style">> </span>Двуспальная кровать</li>
+                <li><span class="single-room__list-style">> </span>Кресло</li>
+                <li><span class="single-room__list-style">> </span>Раскладывающийся диван</li>
+                <li><span class="single-room__list-style">> </span>Фен</li>
+              </ul>
+              <ul class="single-room__list-item2">
+                <li><span class="single-room__list-style">> </span>Рабочий стол</li>
+                <li><span class="single-room__list-style">> </span>Шкаф для одежды</li>
+                <li><span class="single-room__list-style">> </span>Багажная тумба</li>
+                <li><span class="single-room__list-style">> </span>Сейф</li>
+              </ul>
+            </div>
+            <h2 class="single-room__item-title">В стоимость входит</h2>
+            <ul>
+              <li><span class="single-room__list-style">> </span>Бассейн с 8.30 до 10.00</li>
+              <li><span class="single-room__list-style">> </span>Завтрак и обед "шведский стол"</li>
+            </ul>
+          </div>
+        </div>
+        <div class="single-room__btn">
+          <a href="#" class="btn  btn--icon">Забронировать</a>
+        </div>
+        <span class="single-room__cost room-cost">от <span>3400</span>руб./сутки</span>
+      </div>
+    </section>
+    <section class="single-room__variation">
+      <div class="single-room__variation-inner">
+
+        <div class="variation-item  variation-item--singleroom">
+          <div class="variation-item__img">
+            <div class="variation-item__img-skin"><img src="img/variation-rest__item1.jpg" alt="Стандарт">
+            </div>
+          </div>
+          <div class="variation-item__description">
+            <div class="variation-item__name">Стандарт</div>
+            <div class="room-cost">от<span> 4000 </span>руб./сутки</div>
+          </div>
+        </div>
+        <div class="variation-item  variation-item--singleroom">
+          <div class="variation-item__img">
+            <div class="variation-item__img-skin"><img src="img/variation-item__singleroom1.png" alt="Стандарт+">
+            </div>
+          </div>
+
+          <div class="variation-item__description">
+            <div class="variation-item__name">Стандарт+</div>
+            <div class="room-cost">от<span> 4500 </span>руб./сутки</div>
+          </div>
+        </div>
+        <div class="variation-item  variation-item--singleroom">
+          <div class="variation-item__img">
+            <div class="variation-item__img-skin"><img src="img/variation-item__singleroom2.png" alt="Люкс">
+            </div>
+          </div>
+
+          <div class="variation-item__description">
+            <div class="variation-item__name">Люкс</div>
+            <div class="room-cost">от<span> 5700 </span>руб./сутки</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <div class="page-footer__address">г. Санкт-Петербург<br/>
+        Приморское ш.60
+      </div>
+      <div class="page-footer__logo">
+        <a href="" class="main-logo"><img src="img/logo.png" alt="Логотип"></a>
+        <div class="socio">
+          <a href="" class="socio__item socio__item--vk"></a>
+          <a href="" class="socio__item socio__item--tw"></a>
+          <a href="" class="socio__item socio__item--fb"></a>
+        </div>
+      </div>
+
+      <div class="page-footer__contact">
+        <a href="tel:+7 812 777-55-88" class="page-footer__phone">+7 812 777-55-88</a>
+        <a href="mailto:info@greenvalley.ru" class="page-footer__email">info@greenvalley.ru</a>
+      </div>
+
+    </div>
+  </footer>
+  <script src="js/script.min.js"></script>
+</body>
+</html>

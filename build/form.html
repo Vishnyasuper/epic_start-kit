@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <title>Form</title>
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/owl.carousel.css"> -->
+    <script>// Этот скрипт будет размещён в <head> над всеми внешними объявлениями стилей (link[rel=stylesheet])
+function loadFont(fontName, woffUrl, woff2Url) {
+  // 0. Многие неподдерживаемые браузеры должны останавливать работу тут.
+  var nua = navigator.userAgent;
+  var noSupport = !window.addEventListener // IE8 и ниже
+        || (nua.match(/(Android (2|3|4.0|4.1|4.2|4.3))|(Opera (Mini|Mobi))/) && !nua.match(/Chrome/)) // Android Stock Browser до 4.4 и Opera Mini
+
+  if (noSupport) {
+    return;
+  }
+
+  // 1. Настраиваем localStorage
+  var loSto = {};
+  try {
+    // Устанавливаем вспомогательную переменную для помощи с localStorage,
+    // например, для случаев когда cookies отключены и браузер не даёт к ним доступа.
+    // Иначе могут быть получены исключения, которые полностью остановят загрузку шрифтов.
+    loSto = localStorage || {};
+  } catch(ex) {}
+
+  var localStoragePrefix = 'x-font-' + fontName;
+  var localStorageUrlKey = localStoragePrefix + 'url';
+  var localStorageCssKey = localStoragePrefix + 'css';
+  var storedFontUrl = loSto[localStorageUrlKey];
+  var storedFontCss = loSto[localStorageCssKey];
+
+  // 2. Создаём элемент <style>, который мы используем для вставки шрифта, закодированного в base64.
+  var styleElement = document.createElement('style');
+  styleElement.rel = 'stylesheet';
+  document.head.appendChild(styleElement);
+  // Из-за ошибок IE9 установка styleElement.textContent должна быть после этой строки.
+
+  // 3. Проверяем, находится ли шрифт уже в localStorage и последней ли он версии.
+  if (storedFontCss && (storedFontUrl === woffUrl || storedFontUrl === woff2Url)) {
+    // css до сих пор в localStorage
+    // и были загружены из одного из текущих адресов
+
+    // 4. Применяем стили шрифта.
+    styleElement.textContent = storedFontCss;
+  } else {
+    // Данных нет, или они загружены с устаревшего URL,
+    // поэтому мы должны загрузить их снова.
+
+    // 5. Проверяем поддержку WOFF2 чтобы узнать, какой URL использовать.
+    var url = (woff2Url && supportsWoff2())
+    ? woff2Url // WOFF2 URL передан в функцию и поддерживается.
+    : woffUrl; // Поддерживается только WOFF.
+
+    // 6. Получаем данные с сервера.
+    var request = new XMLHttpRequest();
+    request.open('GET', url);
+    request.onload = function() {
+      if (request.status >= 200 && request.status < 400) {
+        // 7. Обновляем localStorage новыми данными и применяем стили шрифта.
+        loSto[localStorageUrlKey] = url;
+        loSto[localStorageCssKey] = styleElement.textContent = request.responseText;
+      }
+    };
+    request.send();
+  }
+
+  function supportsWoff2() {
+    // https://github.com/filamentgroup/woff2-feature-test
+    if( !( "FontFace" in window ) ) {
+      return false;
+    }
+
+    var f = new FontFace('t', 'url( "data:application/font-woff2;base64,d09GMgABAAAAAADcAAoAAAAAAggAAACWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABk4ALAoUNAE2AiQDCAsGAAQgBSAHIBtvAcieB3aD8wURQ+TZazbRE9HvF5vde4KCYGhiCgq/NKPF0i6UIsZynbP+Xi9Ng+XLbNlmNz/xIBBqq61FIQRJhC/+QA/08PJQJ3sK5TZFMlWzC/iK5GUN40psgqvxwBjBOg6JUSJ7ewyKE2AAaXZrfUB4v+hze37ugJ9d+DeYqiDwVgCawviwVFGnuttkLqIMGivmDg" ) format( "woff2" )', {});
+    f.load()['catch'](function() {});
+
+    return f.status == 'loading';
+  }
+}
+
+
+// Вызываем функцию подгрузки
+loadFont(
+    'Open Sans_my',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'Fira Sans',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Sans Caption',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Serif Caption',                      // название шрифта
+   '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Serif Regular',                      // название шрифта
+   '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );</script>
+    <noscript><link rel="stylesheet" href="css/font_opensans_woff.css"></noscript>
+</head>
+<body>
+  <header class="page-header">
+      <div class="page-header__inner">
+        <div class="page-header__logo">
+          <a href="" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
+        </div>
+        <nav class="main-nav">
+          <ul class="main-nav__list" id="nav">
+              <li class="main-nav__item"><a href="" class="main-nav__link">Номера</a></li>
+              <li class="main-nav__item  main-nav__item--active"><a href="" class="main-nav__link">Коттедж</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Ресторан</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Отдых</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Контакты</a></li>
+          </ul>
+          <!-- <span class="main-nav__toggler"><span></span></span> -->
+          <a href="" class="main-nav__toggler" id="toggler"><span></span></a>
+
+        </nav>
+        <div class="page-header__contact">
+            <a href="tel:+7 812 777-55-88" class="page-header__phone">+7 812 777-55-88</a>
+            <span class="page-header__address">г.Санкт-Петербург, Приморское ш.600</span>
+        </div>
+        <div class="page-header__btn">
+        <a href="" class="btn btn--icon">Забронировать</a>
+        </div>
+      </div>
+  </header>
+  <main>
+  <div class="form-name">
+    <div class="form-name__inner">
+      <h1 class="form-name__title">Бронирование</h1>
+      <p class="form-name__description">Чтобы забронировать номер в отеле или коттедж, заполните форму ниже или просто позвоните <br/&> по телефону: <a href="tel:+7 812 777-55-88">+7 812 777-55-88</a></p>
+    </div>
+  </div>
+  <div class="form-step1">
+    <div class="form-step1__inner">
+        <span class="form-step1__number">шаг 1</span>
+        <span class="form-step1__name">Дата отдыха</span>
+        <form action="">
+            <div class="form-step1__entry">
+                <span class="form-step1__date-entry">дата въезда</span>
+                <input type="text" placeholder="06.08.2016" id="datepicker"/>
+            </div>
+            <div class="form-step1__exit">
+                <span class="form-step1__date-exit">дата выезда</span>
+                <input type="text" placeholder="06.08.2016" id="datepicker"/>
+            </div>
+        </form>
+    </div>
+  </div>
+  <div class="form-step2">
+      <div class="form-step2__inner">
+        <span class="form-step2__number">шаг 2</span>
+        <span class="form-step2__name">Место проживания</span>
+        <form action="" class="form-step2__choice">
+          <input type="radio" class="form__place-type-1" id="place-type-1" name="place-type" />
+          <input type="radio" class="form__place-type-2" id="place-type-2" name="place-type" checked />
+
+          <div class="form-step2__option-skin">
+            <div class="form-step2__option">
+              <h2>Отель</h2>
+              <div class="form-step2__icon-img">
+                <div class="form-step2__icon-img-skin">
+                  <img class="form-step2__icon" src="img/place-type_hotel.png" alt="Иконка отеля" width="82" height="64">
+              <!-- <p class="form-step2__icon">Иконка отеля</p> -->
+                </div>
+              </div>
+
+            </div>
+            <div class="form-step2__option">
+              <h2>Коттедж</h2>
+              <div class="form-step2__icon-img">
+                <div class="form-step2__icon-img-skin">
+                  <img class="form-step2__icon" src="img/place-type_cottage.png" alt="Иконка коттеджа" width="80" height="60">
+               <!-- <p class="form-step2__icon">Иконка коттеджа</p> -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+              <label for="place-type-1">hotels</label>
+              <label for="place-type-2">cottages</label>
+        </form>
+      </div>
+  </div>
+  <div class="form-step3  form-step3--bg-gray  form-step3--hotels">
+    <div class="form-step3__inner">
+      <span class="form-step3__number">шаг 3</span>
+      <span class="form-step3__name">Тип коттеджа</span>
+      <ul class="form-step3__type">
+        <li>Флагман</li>
+        <li>Озерный</li>
+        <li>Ольховка</li>
+        <li>Портовый</li>
+      </ul>
+      <ul class="form-step3__property">
+        <li>Площадь 100 М2</li>
+        <li>3 комнаты</li>
+        <li>5 спальных мест</li>
+        <li>раздельный санузел</li>
+        <li>WI-FI</li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-step3  form-step3--bg-gray  form-step3--cottages">
+    <div class="form-step3__inner">
+      <span class="form-step3__number">шаг 3</span>
+      <span class="form-step3__name">Тип отеля</span>
+        <ul class="form-step3__type">
+            <li>Флагман</li>
+            <li>Озерный</li>
+            <li>Ольховка</li>
+            <li>Портовый</li>
+        </ul>
+        <ul class="form-step3__property">
+            <li>Площадь 100 М2</li>
+            <li>3 комнаты</li>
+            <li>5 спальных мест</li>
+            <li>раздельный санузел</li>
+            <li>WI-FI</li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="form-step4">
+      <div class="form-step4__inner">
+        <span class="form-step1__number">шаг 4</span>
+        <span class="form-step1__name">Персональная информация</span>
+        <form action="#">
+            <input type="text" placeholder="Юлия" />
+            <input type="text" placeholder="Фамилия" />
+            <input type="text" pattern="[0-9] {7,11}" id="phone" placeholder="Номер телефона"/>
+            <input type="text" placeholder="e-mail"/>
+            <span>Мы свяжемся с вами в случае необходимости.</span>
+            <span>На этот адрес мы вышлем вам подтверждение о забронированном номере.</span>
+        </form>
+    </div>
+  </div>
+  <div class="form-step5">
+  <div class="form-step5__inner">
+    <span class="form-step1__number">шаг 5</span>
+    <span class="form-step1__name">Способ оплаты</span>
+    <div class="form-step5__error">
+        <span>К оплате</span>
+        <span>-</span>
+        <span>Пожалуйста, выберите дату въезда и выезда, чтобы увидеть сумму к оплате</span>
+    </div>
+    <div class="form-step5__error">
+        <span>К оплате</span>
+        <span>-</span>
+        <span>Пожалуйста, выберите дату въезда и выезда, чтобы увидеть сумму к оплате</span>
+    </div>
+    <div class="form-step5__cost-arrival">
+        <span>по приезду</span>
+        <span>Вы можете произвести оплату по факту заселения.</span>
+    </div>
+    <div class="form-step5__cost-now">
+        <span>Сейчас</span>
+        <span>Прямо сейчас вы можете произвести оплату с помощью банковской карты.</span>
+        <form action="">
+            <span>Номер карты</span>
+            <input type="text" placeholder="0000-0000-0000-0000"/>
+            <span>фамилия фладельца карты</span>
+            <input type="text" placeholder="YULIA OBUKHOVA"/>
+            <span>код cvv</span>
+            <input type="text" placeholder="123">
+            <span>действует до</span>
+            <input type="text" placeholder="01/2018">
+        </form>
+        <a href="" class="form-step5__btn  btn">Забронировать</a>
+    </div>
+
+  </div>
+  </div>
+  </main>
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <div class="page-footer__address">г. Санкт-Петербург<br/>
+        Приморское ш.60
+      </div>
+      <div class="page-footer__logo">
+        <a href="" class="main-logo"><img src="img/logo.png" alt="Логотип"></a>
+        <div class="socio">
+          <a href="" class="socio__item socio__item--vk"></a>
+          <a href="" class="socio__item socio__item--tw"></a>
+          <a href="" class="socio__item socio__item--fb"></a>
+        </div>
+      </div>
+
+      <div class="page-footer__contact">
+        <a href="tel:+7 812 777-55-88" class="page-footer__phone">+7 812 777-55-88</a>
+        <a href="mailto:info@greenvalley.ru" class="page-footer__email">info@greenvalley.ru</a>
+      </div>
+
+    </div>
+
+  </footer>
+  <script src="js/script.min.js"></script>
+</body>
+</html>

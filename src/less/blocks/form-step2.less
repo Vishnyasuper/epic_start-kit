@@ -1,4 +1,111 @@
-.form__place-type-1:checked ~ .form__step3--hotels {display: block;}
+/*.form__place-type-1:checked ~ .form__step3--hotels {display: block;}
 .form__place-type-1:checked ~ .form__step3--cottages {display: none;}
 .form__place-type-2:checked ~ .form__step3--hotels {display: none;}
 .form__place-type-2:checked ~ .form__step3--cottages {display: block;}
+*/
+.form-step2{
+  &__inner{
+    .container-large-fixed();
+    padding: 40px 20px 50px 20px;
+    background-color: @reviews-color;
+  }
+
+  &__number{
+    display: block;
+    font-family: @font_FiraSans;
+    font-weight: 500;
+    font-size: 14px;
+    color: @form-number-color;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__name{
+    display: block;
+    font-family: @font_PT_SerifRegular;
+    font-size: 26px;
+    font-weight: 400;
+    color: @link-header-color;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+
+  &__choice{
+    text-align: center;
+    // padding-bottom: 37px;
+
+  }
+
+  &__option-skin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid @single-room-border-color;
+    padding: 25px 0;
+
+  }
+
+  &__option:first-child{
+      border-right: 1px solid @single-room-border-color;
+  }
+
+  &__option{
+
+    h2{
+      font-family: @font_FiraSans;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 0;
+      margin: 0;
+      color: @form-date-color;
+      text-transform: uppercase;
+    }
+  }
+
+  &__icon-img{
+
+    padding: 15px 27px;
+  }
+
+  &__icon-img-skin{
+
+    margin: 0 auto;
+    width: 82px;
+    height: auto;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        max-height: none;
+    }
+  }
+
+  @media (min-width: @screen-sm){
+
+    form{
+      width: 380px;
+      margin: 0 auto;
+    }
+
+    &__icon-img{
+      padding: 15px 50px;
+    }
+
+  }
+
+  @media (min-width: @screen-lg){
+    form{
+      width: 380px;
+      background-color: @reviews-color;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 26px;
+
+    }
+
+  }
+
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <title>Green Valley</title>
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/owl.carousel.css"> -->
+    <script>// Этот скрипт будет размещён в <head> над всеми внешними объявлениями стилей (link[rel=stylesheet])
+function loadFont(fontName, woffUrl, woff2Url) {
+  // 0. Многие неподдерживаемые браузеры должны останавливать работу тут.
+  var nua = navigator.userAgent;
+  var noSupport = !window.addEventListener // IE8 и ниже
+        || (nua.match(/(Android (2|3|4.0|4.1|4.2|4.3))|(Opera (Mini|Mobi))/) && !nua.match(/Chrome/)) // Android Stock Browser до 4.4 и Opera Mini
+
+  if (noSupport) {
+    return;
+  }
+
+  // 1. Настраиваем localStorage
+  var loSto = {};
+  try {
+    // Устанавливаем вспомогательную переменную для помощи с localStorage,
+    // например, для случаев когда cookies отключены и браузер не даёт к ним доступа.
+    // Иначе могут быть получены исключения, которые полностью остановят загрузку шрифтов.
+    loSto = localStorage || {};
+  } catch(ex) {}
+
+  var localStoragePrefix = 'x-font-' + fontName;
+  var localStorageUrlKey = localStoragePrefix + 'url';
+  var localStorageCssKey = localStoragePrefix + 'css';
+  var storedFontUrl = loSto[localStorageUrlKey];
+  var storedFontCss = loSto[localStorageCssKey];
+
+  // 2. Создаём элемент <style>, который мы используем для вставки шрифта, закодированного в base64.
+  var styleElement = document.createElement('style');
+  styleElement.rel = 'stylesheet';
+  document.head.appendChild(styleElement);
+  // Из-за ошибок IE9 установка styleElement.textContent должна быть после этой строки.
+
+  // 3. Проверяем, находится ли шрифт уже в localStorage и последней ли он версии.
+  if (storedFontCss && (storedFontUrl === woffUrl || storedFontUrl === woff2Url)) {
+    // css до сих пор в localStorage
+    // и были загружены из одного из текущих адресов
+
+    // 4. Применяем стили шрифта.
+    styleElement.textContent = storedFontCss;
+  } else {
+    // Данных нет, или они загружены с устаревшего URL,
+    // поэтому мы должны загрузить их снова.
+
+    // 5. Проверяем поддержку WOFF2 чтобы узнать, какой URL использовать.
+    var url = (woff2Url && supportsWoff2())
+    ? woff2Url // WOFF2 URL передан в функцию и поддерживается.
+    : woffUrl; // Поддерживается только WOFF.
+
+    // 6. Получаем данные с сервера.
+    var request = new XMLHttpRequest();
+    request.open('GET', url);
+    request.onload = function() {
+      if (request.status >= 200 && request.status < 400) {
+        // 7. Обновляем localStorage новыми данными и применяем стили шрифта.
+        loSto[localStorageUrlKey] = url;
+        loSto[localStorageCssKey] = styleElement.textContent = request.responseText;
+      }
+    };
+    request.send();
+  }
+
+  function supportsWoff2() {
+    // https://github.com/filamentgroup/woff2-feature-test
+    if( !( "FontFace" in window ) ) {
+      return false;
+    }
+
+    var f = new FontFace('t', 'url( "data:application/font-woff2;base64,d09GMgABAAAAAADcAAoAAAAAAggAAACWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABk4ALAoUNAE2AiQDCAsGAAQgBSAHIBtvAcieB3aD8wURQ+TZazbRE9HvF5vde4KCYGhiCgq/NKPF0i6UIsZynbP+Xi9Ng+XLbNlmNz/xIBBqq61FIQRJhC/+QA/08PJQJ3sK5TZFMlWzC/iK5GUN40psgqvxwBjBOg6JUSJ7ewyKE2AAaXZrfUB4v+hze37ugJ9d+DeYqiDwVgCawviwVFGnuttkLqIMGivmDg" ) format( "woff2" )', {});
+    f.load()['catch'](function() {});
+
+    return f.status == 'loading';
+  }
+}
+
+
+// Вызываем функцию подгрузки
+loadFont(
+    'Open Sans_my',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'Fira Sans',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Sans Caption',                      // название шрифта
+    '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Serif Caption',                      // название шрифта
+   '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );
+loadFont(
+    'PT Serif Regular',                      // название шрифта
+   '/css/font_opensans_woff.css?v=1',   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF
+    '/css/font_opensans_woff2.css?v=1'   // откуда с сервака тянуть CSS с закодированным в base64 форматом WOFF2
+  );</script>
+    <noscript><link rel="stylesheet" href="css/font_opensans_woff.css"></noscript>
+</head>
+<body>
+
+  <header class="page-header">
+      <div class="page-header__inner">
+        <div class="page-header__logo">
+          <a href="" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
+        </div>
+        <nav class="main-nav">
+          <ul class="main-nav__list" id="nav">
+              <li class="main-nav__item"><a href="" class="main-nav__link">Номера</a></li>
+              <li class="main-nav__item  main-nav__item--active"><a href="" class="main-nav__link">Коттедж</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Ресторан</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Отдых</a></li>
+              <li class="main-nav__item"><a href="" class="main-nav__link">Контакты</a></li>
+          </ul>
+          <!-- <span class="main-nav__toggler"><span></span></span> -->
+          <a href="" class="main-nav__toggler" id="toggler"><span></span></a>
+
+        </nav>
+        <div class="page-header__contact">
+            <a href="tel:+7 812 777-55-88" class="page-header__phone">+7 812 777-55-88</a>
+            <span class="page-header__address">г.Санкт-Петербург, Приморское ш.600</span>
+        </div>
+        <div class="page-header__btn">
+        <a href="" class="btn btn--icon">Забронировать</a>
+        </div>
+      </div>
+  </header>
+
+  <main>
+
+  <div class="promo">
+
+      <ul class="promo__tabs">
+          <li class="promo__tab"><a href="#slide-1">Семейный отдых</a></li>
+          <li class="promo__tab"><a href="#slide-2">Корпоративный</a></li>
+      </ul>
+      <div class="vacation-slider  promo__vacation-slider">
+        <!-- <section id="slide-1" class="vacation-slider__slide" style="background-image: url(img/home1200__promo.png);"> -->
+        <section id="slide-1" class="vacation-slider__slide">
+          <div class="vacation-slider__inner">
+              <!-- <h1 class="vacation-slider__title"> -->
+                <div class="vacation-slider__title">
+                <span class="vacation-slider__title-first">Семейный отдых на  берегу</span><!-- </br> -->
+                <span class="vacation-slider__title-second">Финского залива</span></div>
+              <!-- </h1> -->
+              <p class="vacation-slider__description">
+              <!-- <span class="vacation-slider__description-first"> -->Green Valley - это современная база отдыха<!-- </span>
+              <span class="vacation-slider__description-second">  --> в курортном районе </br> для здорового отдыха всей семьёй.<!-- </span> -->
+              </p>
+          </div>
+        </section>
+        <div class="vacation-type  promo__vacation-type">
+          <section id="slide-type-1" class="vacation-type__slide-type" style="background-image: url('img/home1200__vacation-type.png');">
+            <div class="vacation-type__inner">
+              <h1 class="vacation-type__title">Здоровый отдых</h1>
+              <p class="vacation-type__description">Плавайте в бассейне, играйте в волейбол, футбол и другие игры. Устройте семейный пикник с шашлыками или снимите напряжение в бане или спа. Почувствуйте отдых!</p>
+            </div>
+
+            <ul class="vacation-type__list">
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list1.jpg" alt="Бассейн" width="80" height="80" class="vacation-type__photo">Бассейн</span></span>
+                <span class="vacation-type__name">Бассейн</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list2.jpg" alt="Спортивная площадка" width="80" height="80" class="vacation-type__photo">Спортивная площадка</span></span>
+                <span class="vacation-type__name">Спортивная площадка</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list3.jpg" alt="Бильярд" width="80" height="80" class="vacation-type__photo">Бильярд</span></span>
+                <span class="vacation-type__name">Бильярд</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list4.jpg" alt="СПА" width="80" height="80" class="vacation-type__photo">СПА</span></span>
+                <span class="vacation-type__name">СПА</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list5.jpg" alt="Бани" width="80" height="80" class="vacation-type__photo">Бани</span></span>
+                <span class="vacation-type__name">Бани</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list6.jpg" alt="Анимация" width="80" height="80" class="vacation-type__photo">Анимации</span></span>
+                <span class="vacation-type__name">Анимация</span>
+              </li>
+            </ul>
+
+          </section>
+        </div>
+      </div>
+    <div class="vacation-slider  promo__vacation-slider">
+        <!-- <section id="slide-2" class="vacation-slider__slide" style="background-image: url('img/home1200__promo.png');"> -->
+        <section id="slide-2" class="vacation-slider__slide">
+          <div class="vacation-slider__inner">
+              <!-- <h1 class="vacation-slider__title"> -->
+                <div class="vacation-slider__title">
+                <span class="vacation-slider__title-first">Семейный отдых на  берегу</span><!-- </br> -->
+                <span class="vacation-slider__title-second">Финского залива</span></div>
+              <!-- </h1> -->
+              <p class="vacation-slider__description">
+              <!-- <span class="vacation-slider__description-first"> -->Green Valley - это современная база отдыха<!-- </span>
+              <span class="vacation-slider__description-second">  --> в курортном районе </br> для здорового отдыха всей семьёй.<!-- </span> -->
+              </p>
+          </div>
+        </section>
+        <div class="vacation-type  promo__vacation-type">
+          <section id="slide-type-2" class="vacation-type__slide-type" style="background-image: url('img/home1200__vacation-type.png');">
+            <div class="vacation-type__inner">
+              <h1 class="vacation-type__title">Здоровый отдых</h1>
+              <p class="vacation-type__description">Плавайте в бассейне, играйте в волейбол, футбол и другие игры. Устройте семейный пикник с шашлыками или снимите напряжение в бане или спа. Почувствуйте отдых!</p>
+            </div>
+
+            <ul class="vacation-type__list">
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list1.jpg" alt="Бассейн" width="80" height="80" class="vacation-type__photo">Бассейн</span></span>
+                <span class="vacation-type__name">Бассейн</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list2.jpg" alt="Спортивная площадка" width="80" height="80" class="vacation-type__photo">Спортивная площадка</span></span>
+                <span class="vacation-type__name">Спортивная площадка</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list3.jpg" alt="Бильярд" width="80" height="80" class="vacation-type__photo">Бильярд</span></span>
+                <span class="vacation-type__name">Бильярд</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list4.jpg" alt="СПА" width="80" height="80" class="vacation-type__photo">СПА</span></span>
+                <span class="vacation-type__name">СПА</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list5.jpg" alt="Бани" width="80" height="80" class="vacation-type__photo">Бани</span></span>
+                <span class="vacation-type__name">Бани</span>
+              </li>
+              <li class="vacation-type__view">
+                <span class="vacation-type__img"><span class="vacation-type__img-skin"><img src="img/vacation-type__list6.jpg" alt="Анимация" width="80" height="80" class="vacation-type__photo">Анимации</span></span>
+                <span class="vacation-type__name">Анимация</span>
+              </li>
+            </ul>
+
+          </section>
+        </div>
+    </div>
+</div>
+
+
+      <section class="gallery">
+        <div class="gallery__inner">
+          <div class="gallery__img"><div class="gallery__img-skin"><img src="img/gallery.jpg" alt="Пример комнаты" class="gallery__photo" id="gallery-large-img"></div></div>
+
+          <!-- <div id="gallery-large"></div> -->
+          <div id="gallery" class="gallery__items owl-carousel">
+
+            <div class="gallery__item"><img data-large-img-url="img/gallery2.jpg" src="img/gallery2.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery3.jpg" src="img/gallery3.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery.jpg" src="img/gallery.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery4.jpg" src="img/gallery4.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery5.jpg" src="img/gallery5.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery6.jpg" src="img/gallery6.jpg" width="198" height="115"  alt="галерея"></div>
+            <div class="gallery__item"><img data-large-img-url="img/gallery7.jpg" src="img/gallery7.jpg" width="198" height="115"  alt="галерея"></div>
+          </div>
+        </div>
+      </section>
+      <section class="reviews">
+        <div class="reviews__inner">
+          <h1 class="reviews__title">Отзывы</h1>
+          <div class="reviews__items">
+            <div class="reviews__item">
+
+              <div class="reviews__img">
+                <div class="reviews__img-skin"><img src="img/reviews__avatar1.jpg" alt="Екатерина В." width="82" height="82" class="reviews__photo">
+                </div>
+              </div>
+
+              <span class="reviews__name">Екатерина В.</span>
+              <div class="reviews__social socio"><a href="#" class="socio__item socio__item--vk"></a></div>
+              <span class="reviews__text">Наша семья счастлива, что открыла для себя Green Valley. Замечательный, комфортный отдых. Хорошее место, приветливый персонал, вкусная еда. Стали постоянными гостями!</span>
+              <span class="reviews__date-text">Дата отдыха:</span>
+              <span class="reviews__date-number">01.06.2015 - 08.06.2015</span>
+
+            </div>
+            <div class="reviews__item">
+
+              <div class="reviews__img">
+                <div class="reviews__img-skin"><img src="img/reviews__avatar2.jpg" alt="Екатерина В." width="82" height="82" class="reviews__photo">
+                </div>
+              </div>
+
+              <span class="reviews__name">Екатерина В.</span>
+              <div class="reviews__social socio"><a href="#" class="socio__item socio__item--vk"></a></div>
+              <span class="reviews__text">Спасибо всем без исключения сотрудникам отеля за прекрасные дни, проведённые у вас! Наслаждались тишиной, отдохнули прекрасно. Понравилось всё: тёплый приём персоналом.</span>
+              <span class="reviews__date-text">Дата отдыха:</span>
+              <span class="reviews__date-number">15.05.2015 - 20.05.2015</span>
+
+            </div>
+          </div>
+          <a href="" class="btn btn--border">Все отзывы</a>
+        </div>
+      </section>
+      <section class="action">
+        <div class="action__inner">
+          <h1 class="action__title">Акции и предложения</h1>
+          <div class="action__slider">
+            <ul class="action__tabs">
+              <li class="action__tab"><a href="#slide-1">item 1</a></li>
+              <li class="action__tab"><a href="#slide-2">item 1</a></li>
+            </ul>
+            <div class="action__item">
+              <div class="action__sentence">
+                <h2>Скидки в мае</h2>
+                <div class="action__text">
+                  Забронируйте номер или коттедж любой категории до 31 июня и получите скидку 10% !
+                </div>
+              </div>
+            </div>
+            <div class="action__item">
+              <div class="action__sentence">
+                <h2>Скидки в мае</h2>
+                <div class="action__text">
+                  Забронируйте номер или коттедж любой категории до 31 июня и получите скидку 10%!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="map">
+        <div class="map__inner">
+          <h1 class="map__title">Как до нас добраться</h1>
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7ZN2j-3YMZFAgxWc2PWvvX05gnjsqFEa&width=100%&height=500&lang=ru_RU&sourceType=constructor&scroll=false"></script>
+          <div class="map__item-inner">
+            <div class="map__item map__item--bus">
+              <!-- <div class="map__item-icon  map__item-icon--bus"></div> -->
+              <h2 class="map__item-title map__item-title--bus">Автобусы</h2>
+              <div class="map__item-description">
+                <p><span class="map__item-number">№  211</span class="map__item-number">  от станции метро «Черная речка» до остановки «Санаторий Репино»</p>
+                <p><span class="map__item-number">№ 305К</span class="map__item-number"> от станции метро «Старая деревня»</p>
+                <p><span class="map__item-number">№ 680К</span class="map__item-number"> от станции метро «Проспект Просвещения»</p>
+                <p><span class="map__item-number">№ 400К</span class="map__item-number"> от станции метро «Площадь Ленина»</p>
+              </div>
+            </div>
+            <div class="map__item map__item--train">
+              <!-- <div class="map__item-icon  map__item-icon--train"></div> -->
+              <h2 class="map__item-title map__item-title--train">Электропоезд</h2>
+              <div class="map__item-description map__item-description--train">
+                <p>Электропоезд Выборгского направления от Финляндского вокзала Санкт-Петербурга до платформы «Репино»</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="variation-rest">
+        <div class="variation-rest__inner">
+          <h1 class="variation-rest__title">Где вы хотите отдохнуть?</h1>
+          <div class="variation-rest__items">
+            <div class="variation-item variation-item--rest">
+              <div class="variation-item__img">
+                <div class="variation-item__img-skin"><img src="img/variation-rest__item1.jpg" alt="Отель">
+                </div>
+              </div>
+              <div class="variation-item__description">
+                <div class="variation-item__name">В отеле</div>
+                <div class="room-cost">от<span> 4000 </span>руб./сутки</div>
+              </div>
+            </div>
+            <div class="variation-item  variation-item--rest">
+              <div class="variation-item__img">
+                <div class="variation-item__img-skin"><img src="img/variation-rest__item2.jpg" alt="Коттедж">
+                </div>
+              </div>
+              <div class="variation-item__description">
+                <div class="variation-item__name">В коттедже</div>
+                <div class="room-cost">от<span> 6800 </span>руб./сутки</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </main>
+      <footer class="page-footer">
+        <div class="page-footer__inner">
+          <div class="page-footer__address">г. Санкт-Петербург<br/>
+            Приморское ш.60
+          </div>
+          <div class="page-footer__logo">
+            <a href="" class="main-logo"><img src="img/logo.png" alt="Логотип"></a>
+            <div class="socio">
+              <a href="" class="socio__item socio__item--vk"></a>
+              <a href="" class="socio__item socio__item--tw"></a>
+              <a href="" class="socio__item socio__item--fb"></a>
+            </div>
+          </div>
+
+          <div class="page-footer__contact">
+            <a href="tel:+7 812 777-55-88" class="page-footer__phone">+7 812 777-55-88</a>
+            <a href="mailto:info@greenvalley.ru" class="page-footer__email">info@greenvalley.ru</a>
+          </div>
+
+          </div>
+      </footer>
+
+<!-- <script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/owl.carousel.min.js"></script> -->
+<script src="js/script.min.js"></script>
+
+
+
+
+
+
+</body>
+</html>

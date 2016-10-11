@@ -69,56 +69,74 @@
         <form action="" class="form-step2__choice">
           <input type="radio" class="form__place-type-1" id="place-type-1" name="place-type" />
           <input type="radio" class="form__place-type-2" id="place-type-2" name="place-type" checked />
+
+          <div class="form-step2__option-skin">
             <div class="form-step2__option">
               <h2>Отель</h2>
-              <p class="form-step2__icon">Иконка отеля</p>
+              <div class="form-step2__icon-img">
+                <div class="form-step2__icon-img-skin">
+                  <img class="form-step2__icon" src="img/place-type_hotel.png" alt="Иконка отеля" width="82" height="64">
+              <!-- <p class="form-step2__icon">Иконка отеля</p> -->
+                </div>
+              </div>
+
             </div>
             <div class="form-step2__option">
               <h2>Коттедж</h2>
-              <p class="form-step2__icon">Иконка коттеджа</p>
+              <div class="form-step2__icon-img">
+                <div class="form-step2__icon-img-skin">
+                  <img class="form-step2__icon" src="img/place-type_cottage.png" alt="Иконка коттеджа" width="80" height="60">
+               <!-- <p class="form-step2__icon">Иконка коттеджа</p> -->
+                </div>
+              </div>
+
             </div>
+          </div>
 
               <label for="place-type-1">hotels</label>
               <label for="place-type-2">cottages</label>
-
-    <div class="form__step3  form__step3--bg-gray  form__step3--hotels">
+        </form>
+      </div>
+  </div>
+  <div class="form-step3  form-step3--bg-gray  form-step3--hotels">
+    <div class="form-step3__inner">
       <span class="form-step3__number">шаг 3</span>
       <span class="form-step3__name">Тип коттеджа</span>
-        <ul>
-            <li>Флагман</li>
-            <li>Озерный</li>
-            <li>Ольховка</li>
-            <li>Портовый</li>
-        </ul>
-        <ul>
-            <li>Площадь 100 М2</li>
-            <li>3 комнаты</li>
-            <li>5 спальных мест</li>
-            <li>раздельный санузел</li>
-            <li>WI-FI</li>
-        </ul>
-
+      <ul class="form-step3__type">
+        <li>Флагман</li>
+        <li>Озерный</li>
+        <li>Ольховка</li>
+        <li>Портовый</li>
+      </ul>
+      <ul class="form-step3__property">
+        <li>Площадь 100 М2</li>
+        <li>3 комнаты</li>
+        <li>5 спальных мест</li>
+        <li>раздельный санузел</li>
+        <li>WI-FI</li>
+      </ul>
+    </div>
   </div>
-  <div class="form__step3  form__step3--bg-gray  form__step3--cottages">
-    <span class="form-step3__number">шаг 3</span>
+  <div class="form-step3  form-step3--bg-gray  form-step3--cottages">
+    <div class="form-step3__inner">
+      <span class="form-step3__number">шаг 3</span>
       <span class="form-step3__name">Тип отеля</span>
-        <ul>
+        <ul class="form-step3__type">
             <li>Флагман</li>
             <li>Озерный</li>
             <li>Ольховка</li>
             <li>Портовый</li>
         </ul>
-        <ul>
+        <ul class="form-step3__property">
             <li>Площадь 100 М2</li>
             <li>3 комнаты</li>
             <li>5 спальных мест</li>
             <li>раздельный санузел</li>
             <li>WI-FI</li>
         </ul>
+    </div>
   </div>
-        </form>
-  </div>
-  </div>
+
   <div class="form-step4">
       <div class="form-step4__inner">
         <span class="form-step1__number">шаг 4</span>
