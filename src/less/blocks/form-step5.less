@@ -1,0 +1,166 @@
+.form-step5{
+  &__inner{
+    .container-large-fixed();
+    padding: 50px 0 80px 0;
+    background-color: @form-bg-color;
+  }
+
+  &__number{
+    display: block;
+    font-family: @font_FiraSans;
+    font-weight: 500;
+    font-size: 14px;
+    color: @form-number-color;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__name{
+    display: block;
+    font-family: @font_PT_SerifRegular;
+    font-size: 26px;
+    font-weight: 400;
+    color: @link-header-color;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  &__cost-arrival{
+    background-color: @reviews-color;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+  }
+
+  &__cost-arrival_name{
+    font-family: @font_FiraSans;
+    font-weight: 500;
+    font-size: 14px;
+    color: @form-date-color;
+    text-transform: uppercase;
+    padding-left: 35px;
+  }
+
+  &__cost-arrival_description{
+    display: none;
+  }
+
+  &__cost-now{
+    display: block;
+    background-color: @reviews-color;
+    padding: 20px 0;
+  }
+
+  &__cost-now_name{
+
+    font-family: @font_FiraSans;
+    font-weight: 500;
+    font-size: 14px;
+    color: @form-date-color;
+    text-transform: uppercase;
+    padding-left: 35px;
+  }
+
+  &__cost-now_description{
+    display: none;
+  }
+
+  &__cost{
+    background-color: @reviews-color;
+    padding: 0 40px 10px 40px;
+    margin-bottom: 20px;
+  }
+
+  &__number-card{
+    font-family: @font_FiraSans;
+    font-weight: 400;
+    font-size: 14px;
+    color: @form-date-color;
+    text-transform: uppercase;
+
+    span{
+      display: block;
+      padding-bottom: 15px;
+    }
+
+    input{
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 8px;
+      text-align: center;
+      border: 1px solid @single-room-border-color;
+    }
+
+    input:nth-of-type(3){
+      width: 55%;
+    }
+
+    input:nth-of-type(4){
+      width: 55%;
+    }
+  }
+
+  &__error{
+    padding: 22px 40px;
+    display: block;
+    background-color: @reviews-color;
+    margin-bottom: 50px;
+  }
+
+  &__error-name{
+    display: block;
+    font-family: @font_FiraSans;
+    font-weight: 400;
+    font-size: 14px;
+    color: @form-date-color;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  &__error-summ{
+    display: block;
+    font-family: @font_FiraSans;
+    font-weight: 500;
+    font-size: 24px;
+    color: @form-date-color;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 5px;
+  }
+
+  &__error-description{
+    display: block;
+    font-family: @font_FiraSans;
+    font-weight: 400;
+    font-size: 14px;
+    color: @form-date-color;
+    text-align: left;
+
+    span{
+      display: inline;
+      text-decoration-style: dashed;
+      color: red;
+    }
+  }
+
+  &__btn{
+    display: block;
+    background-color: @form-btn-color;
+    font-family: @font_FiraSans;
+    font-size: 14px;
+    font-weight: 500;
+    color: @reviews-color;
+    text-transform: uppercase;
+    padding: 14px;
+    border-radius: 0;
+    margin: 0 20px;
+  }
+
+  @media (min-width: @screen-sm){
+    &__cost-inner{
+      display: inline-flex;
+    }
+  }
+
+}
