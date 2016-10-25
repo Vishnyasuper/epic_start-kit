@@ -1,13 +1,13 @@
 .promo{
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   &__tabs{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-left: 0;
-    padding: 15px 20px 0;
+    padding: 33px 20px;
 
   }
 
@@ -24,11 +24,25 @@
       text-decoration: none;
     }
 
+    a:hover{
+      color: @promo-tab-line-color;
+    }
+
+    a:active{
+      color: @promo-tab-line-color;
+    }
+
   }
 
 //дописать цвет активной ссылки
 
-  &__tab:after {
+  &__tab--active{
+    a{
+      color: @promo-tab-line-color;
+    }
+  }
+
+  &__tab--active:after {
     content: '';
     position: absolute;
     bottom: -3px;
@@ -37,6 +51,22 @@
     height: 2px;
     background-color: @promo-tab-line-color;
   }
+
+  // &__tab--active-corporation{
+  //   a{
+  //     color: @promo-tab-line-color;
+  //   }
+  // }
+
+  // &__tab--active-corporation:after {
+  //   content: '';
+  //   position: absolute;
+  //   bottom: -3px;
+  //   left: 40px;
+  //   width: 30px;
+  //   height: 2px;
+  //   background-color: @promo-tab-line-color;
+  // }
 
   @media (min-width: @screen-sm){
     &__tabs{

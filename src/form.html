@@ -109,11 +109,11 @@
         <li>Портовый</li>
       </ul>
       <ul class="form-step3__property">
-        <li>Площадь 100 М2</li>
-        <li>3 комнаты</li>
-        <li>5 спальных мест</li>
-        <li>раздельный санузел</li>
-        <li>WI-FI</li>
+        <li class="form-step3__item form-step3__item--square">Площадь 100М2</li>
+        <li class="form-step3__item form-step3__item--room">3 комнаты</li>
+        <li class="form-step3__item form-step3__item--bad-place">5 спальных мест</li>
+        <li class="form-step3__item form-step3__item--wc">раздельный санузел</li>
+        <li class="form-step3__item form-step3__item--wi-fi">WI-FI</li>
       </ul>
     </div>
   </div>
@@ -128,64 +128,72 @@
             <li>Портовый</li>
         </ul>
         <ul class="form-step3__property">
-            <li>Площадь 100 М2</li>
-            <li>3 комнаты</li>
-            <li>5 спальных мест</li>
-            <li>раздельный санузел</li>
-            <li>WI-FI</li>
+          <li class="form-step3__item form-step3__item--square">Площадь 100М2</li>
+          <li class="form-step3__item form-step3__item--room">3 комнаты</li>
+          <li class="form-step3__item form-step3__item--bad-place">5 спальных мест</li>
+          <li class="form-step3__item form-step3__item--wc">раздельный санузел</li>
+          <li class="form-step3__item form-step3__item--wi-fi">WI-FI</li>
         </ul>
     </div>
   </div>
 
   <div class="form-step4">
       <div class="form-step4__inner">
-        <span class="form-step1__number">шаг 4</span>
-        <span class="form-step1__name">Персональная информация</span>
-        <form action="#">
-            <input type="text" placeholder="Юлия" />
+        <span class="form-step4__number">шаг 4</span>
+        <span class="form-step4__name">Персональная информация</span>
+        <form action="#" class="form-step4__personal-inform">
+            <input type="text" placeholder="Имя" />
             <input type="text" placeholder="Фамилия" />
             <input type="text" pattern="[0-9] {7,11}" id="phone" placeholder="Номер телефона"/>
+            <span class="form-step4__personal-description">Мы свяжемся с вами в случае необходимости.</span>
             <input type="text" placeholder="e-mail"/>
-            <span>Мы свяжемся с вами в случае необходимости.</span>
-            <span>На этот адрес мы вышлем вам подтверждение о забронированном номере.</span>
+
+            <span class="form-step4__personal-description_large-screen">Мы свяжемся с вами в случае необходимости.</span>
+            <span class="form-step4__personal-description_large-screen">На этот адрес мы вышлем вам подтверждение о забронированном номере.</span>
         </form>
     </div>
   </div>
   <div class="form-step5">
-  <div class="form-step5__inner">
-    <span class="form-step1__number">шаг 5</span>
-    <span class="form-step1__name">Способ оплаты</span>
-    <div class="form-step5__error">
+    <div class="form-step5__inner">
+      <span class="form-step5__number">шаг 5</span>
+      <span class="form-step5__name">Способ оплаты</span>
+
+    <!-- <div class="form-step5__error">
         <span>К оплате</span>
         <span>-</span>
         <span>Пожалуйста, выберите дату въезда и выезда, чтобы увидеть сумму к оплате</span>
-    </div>
-    <div class="form-step5__error">
-        <span>К оплате</span>
-        <span>-</span>
-        <span>Пожалуйста, выберите дату въезда и выезда, чтобы увидеть сумму к оплате</span>
-    </div>
-    <div class="form-step5__cost-arrival">
-        <span>по приезду</span>
-        <span>Вы можете произвести оплату по факту заселения.</span>
-    </div>
-    <div class="form-step5__cost-now">
-        <span>Сейчас</span>
-        <span>Прямо сейчас вы можете произвести оплату с помощью банковской карты.</span>
-        <form action="">
+      </div> -->
+      <div class="form-step5__cost-inner">
+        <div class="form-step5__cost-arrival">
+          <span class="form-step5__cost-arrival_name">по приезду</span>
+          <span class="form-step5__cost-arrival_description">Вы можете произвести оплату по факту заселения.</span>
+        </div>
+        <div class="form-step5__cost">
+          <div class="form-step5__cost-now">
+            <span class="form-step5__cost-now_name">Сейчас</span>
+            <span class="form-step5__cost-now_description">Прямо сейчас вы можете произвести оплату с помощью банковской карты.</span>
+          </div>
+          <form action="" class="form-step5__number-card">
             <span>Номер карты</span>
             <input type="text" placeholder="0000-0000-0000-0000"/>
-            <span>фамилия фладельца карты</span>
+            <span>фамилия владельца карты</span>
             <input type="text" placeholder="YULIA OBUKHOVA"/>
             <span>код cvv</span>
             <input type="text" placeholder="123">
             <span>действует до</span>
             <input type="text" placeholder="01/2018">
-        </form>
-        <a href="" class="form-step5__btn  btn">Забронировать</a>
-    </div>
+          </form>
 
-  </div>
+        </div>
+        <div class="form-step5__error">
+          <span class="form-step5__error-name">К оплате</span>
+          <span class="form-step5__error-summ">-</span>
+          <span class="form-step5__error-description">Пожалуйста, <span>выберите дату</span> въезда и выезда, чтобы увидеть сумму к оплате</span>
+        </div>
+      </div>
+        <a href="" class="form-step5__btn  btn">Забронировать</a>
+
+    </div>
   </div>
   </main>
   <footer class="page-footer">

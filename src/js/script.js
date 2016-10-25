@@ -71,6 +71,31 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+// Галерея на главной
+  var reviews = $('#reviews');
+  reviews.owlCarousel({
+    items: 2,                 // одновременно 2 миниатюры
+    loop: true,               // включаем петлю
+    center: false,             // центрируем активную миниатюру
+    mouseDrag: true,         // отключаем перетаскивание мышом
+  });
+
+  var owl = $('.owl-carousel');
+  owl.owlCarousel();
+// Go to the next item
+  $('.customNextBtn').click(function() {
+  owl.trigger('next.owl.carousel');
+  })
+// Go to the previous item
+  $('.customPrevBtn').click(function() {
+    // With optional speed parameter
+    // Parameters has to be in square bracket '[]'
+    owl.trigger('prev.owl.carousel', [300]);
+  })
+
+
+});
 
 $(document).ready(function(){
 
@@ -134,3 +159,31 @@ function showScrollTopButton(){
     $('#toTop').fadeOut();
   }
 };
+
+var vacationList = $('.vacation-list');
+// сохранили в переменную ссылку на тег
+
+// по нажатию на первую ссылку убераем класс который прокруцивает слайд
+$('#promo-tab1').on('click', function(e) {
+  e.preventDefault();
+  vacationList.removeClass('swipe');
+});
+
+// при нажатии на вторую - добавляем
+$('#promo-tab2').on('click', function(e) {
+  e.preventDefault();
+  vacationList.addClass('swipe');
+});
+
+
+$('#promo-tab2').on('click', function(e) {
+  e.preventDefault();
+  $('#promo-tab1').removeClass('promo__tab--active');
+  $('#promo-tab2').addClass('promo__tab--active');
+});
+
+$('#promo-tab1').on('click', function(e) {
+  e.preventDefault();
+  $('#promo-tab2').removeClass('promo__tab--active');
+  $('#promo-tab1').addClass('promo__tab--active');
+});

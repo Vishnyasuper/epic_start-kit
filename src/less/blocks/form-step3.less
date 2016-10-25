@@ -35,9 +35,11 @@
     text-transform: uppercase;
     padding: 27px;
     text-align: center;
+    margin-bottom: 0;
 
     li{
       padding: 17px;
+
     }
 
   }
@@ -52,8 +54,145 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+
+      li{
+        padding: 35px 60px;
+        border-right: 1px solid @single-room-border-color;
+      }
+
+      li:last-child{
+        border-right: 0;
+      }
     }
 
+    &__property{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-top: 23px;
+      background-color: @reviews-color;
+      list-style: none;
+      color: @link-header-color;
+      font-family: @font_FiraSans;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      padding: 25px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    &__item{
+
+      position: relative;
+      width: 95px;
+
+      &--square{
+        padding-top: 56px;
+      }
+
+      &--square:before{
+        position: absolute;
+        content: "";
+        display: block;
+        background-image: url('../img/form-step3__item--square.png');
+        // background-image: url(../img/sprites.png);
+        width: 45px;
+        height: 45px;
+        left: 25px;
+        top: 0px;
+        background-repeat: no-repeat;
+        // background-position: -100px -100px;
+      }
+
+      &--room{
+        padding-top: 56px;
+      }
+
+      &--room:before{
+        position: absolute;
+        content: "";
+        display: block;
+        background-image: url('../img/form-step3__item--room.png');
+        // background-image: url(../img/sprites.png);
+        width: 27px;
+        height: 43px;
+        left: 35px;
+        top: 0px;
+        background-repeat: no-repeat;
+        // background-position: -100px -100px;
+      }
+
+      &--bad-place{
+        padding-top: 56px;
+      }
+
+      &--bad-place:before{
+        position: absolute;
+        content: "";
+        display: block;
+        background-image: url('../img/form-step3__item--bad-place.png');
+        // background-image: url(../img/sprites.png);
+        width: 55px;
+        height: 43px;
+        left: 20px;
+        top: 0px;
+        background-repeat: no-repeat;
+        // background-position: -100px -100px;
+      }
+
+      &--wc{
+        padding-top: 56px;
+      }
+
+      &--wc:before{
+        position: absolute;
+        content: "";
+        display: block;
+        background-image: url('../img/form-step3__item--wc.png');
+        // background-image: url(../img/sprites.png);
+        width: 52px;
+        height: 28px;
+        left: 25px;
+        top: 14px;
+        background-repeat: no-repeat;
+        // background-position: -100px -100px;
+      }
+
+      &--wi-fi{
+        padding-top: 56px;
+      }
+
+      &--wi-fi:before{
+        position: absolute;
+        content: "";
+        display: block;
+        background-image: url('../img/form-step3__item--wi-fi.png');
+        // background-image: url(../img/sprites.png);
+        width: 50px;
+        height: 42px;
+        left: 25px;
+        top: 0px;
+        // background-repeat: no-repeat;
+        // background-position: -100px -100px;
+      }
+
+    }
+
+  }
+
+  @media (min-width: @screen-lg){
+    &__type{
+      width: 780px;
+      margin: 0 auto;
+
+    }
+
+    &__property{
+      width: 780px;
+      margin: 0 auto;
+      margin-top: 23px;
+    }
   }
 
 

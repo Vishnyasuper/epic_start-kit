@@ -45,26 +45,50 @@
   <main>
 
   <div class="promo">
-
-      <ul class="promo__tabs">
-          <li class="promo__tab"><a href="#slide-1">Семейный отдых</a></li>
-          <li class="promo__tab"><a href="#slide-2">Корпоративный</a></li>
-      </ul>
-      <div class="vacation-slider  promo__vacation-slider">
-        <!-- <section id="slide-1" class="vacation-slider__slide" style="background-image: url(img/home1200__promo.png);"> -->
-        <section id="slide-1" class="vacation-slider__slide">
-          <div class="vacation-slider__inner">
-              <!-- <h1 class="vacation-slider__title"> -->
+      <div class="vacation-window">
+        <div class="vacation-list">
+          <div class="vacation-slider  promo__vacation-slider">
+            <!-- <section id="slide-1" class="vacation-slider__slide" style="background-image: url(img/home1200__promo.png);"> -->
+            <section id="slide-1" class="vacation-slider__slide">
+              <div class="vacation-slider__inner">
+                <!-- <h1 class="vacation-slider__title"> -->
                 <div class="vacation-slider__title">
-                <span class="vacation-slider__title-first">Семейный отдых на  берегу</span><!-- </br> -->
-                <span class="vacation-slider__title-second">Финского залива</span></div>
-              <!-- </h1> -->
-              <p class="vacation-slider__description">
+                  <span class="vacation-slider__title-first">Семейный отдых на  берегу</span><!-- </br> -->
+                  <span class="vacation-slider__title-second">Финского залива</span></div>
+                  <!-- </h1> -->
+                  <p class="vacation-slider__description">
               <!-- <span class="vacation-slider__description-first"> -->Green Valley - это современная база отдыха<!-- </span>
               <span class="vacation-slider__description-second">  --> в курортном районе </br> для здорового отдыха всей семьёй.<!-- </span> -->
-              </p>
+                  </p>
+              </div>
+            </section>
           </div>
-        </section>
+          <div class="vacation-slider  promo__vacation-slider">
+            <!-- <section id="slide-2" class="vacation-slider__slide" style="background-image: url('img/home1200__promo.png');"> -->
+            <section id="slide-2" class="vacation-slider__slide">
+              <div class="vacation-slider__inner">
+                <!-- <h1 class="vacation-slider__title"> -->
+                <div class="vacation-slider__title">
+                  <span class="vacation-slider__title-first">Корпоративный отдых на  берегу</span><!-- </br> -->
+                  <span class="vacation-slider__title-second">Финского залива</span></div>
+                  <!-- </h1> -->
+                  <p class="vacation-slider__description">
+              <!-- <span class="vacation-slider__description-first"> -->Green Valley - это современная база отдыха<!-- </span>
+              <span class="vacation-slider__description-second">  --> в курортном районе </br> для здорового отдыха всей семьёй.<!-- </span> -->
+                  </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <ul class="promo__tabs">
+        <li id="promo-tab1" class="promo__tab promo__tab--active"><a href="#slide-1" class="js-one">Семейный отдых</a></li>
+        <li id="promo-tab2" class="promo__tab"><a href="#slide-2" class="js-two">Корпоративный</a></li>
+      </ul>
+
+    <div class="vacation-window">
+      <div class="vacation-list">
         <div class="vacation-type  promo__vacation-type">
           <section id="slide-type-1" class="vacation-type__slide-type" style="background-image: url('img/home1200__vacation-type.png');">
             <div class="vacation-type__inner">
@@ -98,25 +122,8 @@
                 <span class="vacation-type__name">Анимация</span>
               </li>
             </ul>
-
           </section>
         </div>
-      </div>
-    <div class="vacation-slider  promo__vacation-slider">
-        <!-- <section id="slide-2" class="vacation-slider__slide" style="background-image: url('img/home1200__promo.png');"> -->
-        <section id="slide-2" class="vacation-slider__slide">
-          <div class="vacation-slider__inner">
-              <!-- <h1 class="vacation-slider__title"> -->
-                <div class="vacation-slider__title">
-                <span class="vacation-slider__title-first">Семейный отдых на  берегу</span><!-- </br> -->
-                <span class="vacation-slider__title-second">Финского залива</span></div>
-              <!-- </h1> -->
-              <p class="vacation-slider__description">
-              <!-- <span class="vacation-slider__description-first"> -->Green Valley - это современная база отдыха<!-- </span>
-              <span class="vacation-slider__description-second">  --> в курортном районе </br> для здорового отдыха всей семьёй.<!-- </span> -->
-              </p>
-          </div>
-        </section>
         <div class="vacation-type  promo__vacation-type">
           <section id="slide-type-2" class="vacation-type__slide-type" style="background-image: url('img/home1200__vacation-type.png');">
             <div class="vacation-type__inner">
@@ -153,16 +160,17 @@
 
           </section>
         </div>
-    </div>
-</div>
 
+      </div>
+    </div>
 
       <section class="gallery">
         <div class="gallery__inner">
-          <div class="gallery__img"><div class="gallery__img-skin"><img src="img/gallery.jpg" alt="Пример комнаты" class="gallery__photo" id="gallery-large-img"></div></div>
+          <div class="gallery__img slick-slider"><div class="gallery__img-skin"><img src="img/gallery.jpg" alt="Пример комнаты" class="gallery__photo" id="gallery-large-img"></div></div>
 
           <!-- <div id="gallery-large"></div> -->
           <div id="gallery" class="gallery__items owl-carousel">
+         <!-- <div id="gallery" class="gallery__items slick-slider"> -->
 
             <div class="gallery__item"><img data-large-img-url="img/gallery2.jpg" src="img/gallery2.jpg" width="198" height="115"  alt="галерея"></div>
             <div class="gallery__item"><img data-large-img-url="img/gallery3.jpg" src="img/gallery3.jpg" width="198" height="115"  alt="галерея"></div>
@@ -177,7 +185,35 @@
       <section class="reviews">
         <div class="reviews__inner">
           <h1 class="reviews__title">Отзывы</h1>
-          <div class="reviews__items">
+          <div id="reviews" class="reviews__items owl-carousel">
+            <div class="reviews__item">
+
+              <div class="reviews__img">
+                <div class="reviews__img-skin"><img src="img/reviews__avatar1.jpg" alt="Екатерина В." width="82" height="82" class="reviews__photo">
+                </div>
+              </div>
+
+              <span class="reviews__name">Екатерина В.</span>
+              <div class="reviews__social socio"><a href="#" class="socio__item socio__item--vk"></a></div>
+              <span class="reviews__text">Наша семья счастлива, что открыла для себя Green Valley. Замечательный, комфортный отдых. Хорошее место, приветливый персонал, вкусная еда. Стали постоянными гостями!</span>
+              <span class="reviews__date-text">Дата отдыха:</span>
+              <span class="reviews__date-number">01.06.2015 - 08.06.2015</span>
+
+            </div>
+            <div class="reviews__item">
+
+              <div class="reviews__img">
+                <div class="reviews__img-skin"><img src="img/reviews__avatar2.jpg" alt="Екатерина В." width="82" height="82" class="reviews__photo">
+                </div>
+              </div>
+
+              <span class="reviews__name">Екатерина В.</span>
+              <div class="reviews__social socio"><a href="#" class="socio__item socio__item--vk"></a></div>
+              <span class="reviews__text">Спасибо всем без исключения сотрудникам отеля за прекрасные дни, проведённые у вас! Наслаждались тишиной, отдохнули прекрасно. Понравилось всё: тёплый приём персоналом.</span>
+              <span class="reviews__date-text">Дата отдыха:</span>
+              <span class="reviews__date-number">15.05.2015 - 20.05.2015</span>
+
+            </div>
             <div class="reviews__item">
 
               <div class="reviews__img">
