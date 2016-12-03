@@ -4413,9 +4413,14 @@ body {
     display: inline-block;
   }
   .main-nav{
-    display: inline-block;
-    -ms-flex-preferred-size: 500px;
-    flex-basis: 500px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-preferred-size: 550px;
+    flex-basis: 550px;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
   .main-nav__list{
     display: inline-block;
