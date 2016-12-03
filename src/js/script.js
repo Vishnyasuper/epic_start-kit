@@ -72,13 +72,16 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-// Галерея на главной
+// Галерея
   var reviews = $('#reviews');
   reviews.owlCarousel({
-    items: 2,                 // одновременно 2 миниатюры
+    items: 1,                 // одновременно 2 миниатюры
     loop: true,               // включаем петлю
-    center: false,             // центрируем активную миниатюру
+    center: true,             // центрируем активную миниатюру
     mouseDrag: true,         // отключаем перетаскивание мышом
+    nav: true,
+    navText: false,
+
   });
 
   var owl = $('.owl-carousel');
@@ -92,6 +95,40 @@ $(document).ready(function(){
     // With optional speed parameter
     // Parameters has to be in square bracket '[]'
     owl.trigger('prev.owl.carousel', [300]);
+  })
+  $('#reviews__btn').click(function() {
+    owl.trigger('destroy.owl.carousel', [300]);
+    reviews.addClass('.reviews__carousel--destroy');
+});
+
+
+});
+
+$(document).ready(function(){
+// Галерея
+  var action = $('#action');
+  action.owlCarousel({
+    items: 2,                 // одновременно 1 миниатюры
+    loop: true,               // включаем петлю
+    center: true,             // центрируем активную миниатюру
+    mouseDrag: true,         // отключаем перетаскивание мышом
+    nav: false,
+    navText: false,
+    dots: true,
+
+  });
+
+  var owl = $('.owl-carousel');
+  owl.owlCarousel();
+// Go to the next item
+  $('.customNextBtn').click(function() {
+  owl.trigger('next.owl.carousel', [400]);
+  })
+// Go to the previous item
+  $('.customPrevBtn').click(function() {
+    // With optional speed parameter
+    // Parameters has to be in square bracket '[]'
+    owl.trigger('prev.owl.carousel', [400]);
   })
 
 

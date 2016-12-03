@@ -46,6 +46,7 @@
 
   &__item:nth-of-type(2n+1){
     margin-bottom: 56px;
+    //margin: 0 auto;
   }
 
   &__img{
@@ -136,6 +137,18 @@
     display: none;
   }
 
+  &__items{
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  &__carousel{
+    &--destroy{
+      display: block;
+
+    }
+  }
+
   @media (min-width: @screen-sm){
     &__item{
         width: 480px;
@@ -180,6 +193,49 @@
 
 }
 
+@media (min-width: @screen-lg){
+
+/*classes of plagin owl-carusel*/
+
+.owl-carousel .owl-controls .owl-nav .owl-prev{
+    position: absolute;
+    left: 270px;
+    top: 170px;
+    background-image: url("../img/gallery__arrow.png");
+    transform: rotate(180deg);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 32px;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-next{
+    position: absolute;
+    right: 270px;
+    top: 170px;
+    background-image: url("../img/gallery__arrow.png");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 19px;
+    height: 32px;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-next:hover{
+    background-image: url("../img/gallery__arrow--hover.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: none;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-prev:hover{
+    background-image: url("../img/gallery__arrow--hover.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+}
+
+}
 .socio{
     position: relative;
 

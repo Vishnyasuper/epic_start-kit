@@ -2150,6 +2150,13 @@ body {
 .reviews owl-loaded {
   display: none;
 }
+.reviews__items {
+  text-align: center;
+  padding-top: 20px;
+}
+.reviews__carousel--destroy {
+  display: block;
+}
 .reviews owl-theme {
   display: block;
 }
@@ -2191,8 +2198,6 @@ body {
       flex-direction: column;
   -ms-flex-pack: center;
       justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
 }
 .action__title {
   font-family: 'PT Serif Caption';
@@ -2204,23 +2209,33 @@ body {
   padding-bottom: 34px;
   margin: 0 auto;
 }
-.action__slider {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column-reverse;
-      flex-direction: column-reverse;
-  -ms-flex-pack: center;
-      justify-content: center;
-}
 .action__item {
-  padding-top: 160px;
-  padding-bottom: 25px;
-  background-image: url('../img/action_bg.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.action__img {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 767px;
+  height: 299px;
+  text-align: center;
+}
+.action__img-skin {
+  display: inline-block;
+  width: 767px;
+  height: 299px;
+  overflow: hidden;
+}
+.action__photo {
+  width: 100%;
 }
 .action__sentence {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   background-color: #f9faf7;
   opacity: 0.95;
   width: 297px;
@@ -2983,6 +2998,8 @@ body {
 .single-room__btn {
   text-align: center;
   margin-bottom: 15px;
+  width: 182px;
+  margin: 0 auto;
 }
 .single-room__variation-inner {
   margin: 0 auto;
@@ -4511,9 +4528,39 @@ body {
   .reviews__item:nth-of-type(2n+1){
     margin-bottom: 0;
   }
-  .action__item{
-    padding-top: 200px;
-    padding-bottom: 20px;
+  /*classes of plagin owl-carusel*/
+  .owl-carousel .owl-controls .owl-nav .owl-prev{
+    position: absolute;
+    left: 270px;
+    top: 170px;
+    background-image: url("../img/gallery__arrow.png");
+    transform: rotate(180deg);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 32px;
+  }
+  .owl-carousel .owl-controls .owl-nav .owl-next{
+    position: absolute;
+    right: 270px;
+    top: 170px;
+    background-image: url("../img/gallery__arrow.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 32px;
+  }
+  .owl-carousel .owl-controls .owl-nav .owl-next:hover{
+    background-image: url("../img/gallery__arrow--hover.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: none;
+  }
+  .owl-carousel .owl-controls .owl-nav .owl-prev:hover{
+    background-image: url("../img/gallery__arrow--hover.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
   }
   .map__item-inner{
     margin-right: auto;

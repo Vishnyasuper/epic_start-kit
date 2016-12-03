@@ -116,12 +116,12 @@ loadFont(
   <header class="page-header">
       <div class="page-header__inner">
         <div class="page-header__logo">
-          <a href="" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
+          <a href="#" class="main-logo"><img src="img/logo.png" alt="Logo" width: "143" height="49"></a>
         </div>
         <nav class="main-nav">
           <ul class="main-nav__list" id="nav">
-              <li class="main-nav__item"><a href="" class="main-nav__link">Номера</a></li>
-              <li class="main-nav__item  main-nav__item--active"><a href="" class="main-nav__link">Коттедж</a></li>
+              <li class="main-nav__item"><a href="roomlist.html" class="main-nav__link">Номера</a></li>
+              <li class="main-nav__item  main-nav__item--active"><a href="roomlist.html" class="main-nav__link">Коттедж</a></li>
               <li class="main-nav__item"><a href="" class="main-nav__link">Ресторан</a></li>
               <li class="main-nav__item"><a href="" class="main-nav__link">Отдых</a></li>
               <li class="main-nav__item"><a href="" class="main-nav__link">Контакты</a></li>
@@ -264,7 +264,7 @@ loadFont(
 
       <section class="gallery">
         <div class="gallery__inner">
-          <div class="gallery__img slick-slider"><div class="gallery__img-skin"><img src="img/gallery.jpg" alt="Пример комнаты" class="gallery__photo" id="gallery-large-img"></div></div>
+          <div class="gallery__img owl-carousel"><div class="gallery__img-skin"><img src="img/gallery.jpg" alt="Пример комнаты" class="gallery__photo" id="gallery-large-img"></div></div>
 
           <!-- <div id="gallery-large"></div> -->
           <div id="gallery" class="gallery__items owl-carousel">
@@ -283,7 +283,9 @@ loadFont(
       <section class="reviews">
         <div class="reviews__inner">
           <h1 class="reviews__title">Отзывы</h1>
-          <div id="reviews" class="reviews__items owl-carousel">
+          <!-- <div id="reviews" class="reviews__items owl-carousel"> -->
+          <div id="reviews" class="reviews__carousel owl-carousel">
+          <div class="reviews__items">
             <div class="reviews__item">
 
               <div class="reviews__img">
@@ -312,6 +314,8 @@ loadFont(
               <span class="reviews__date-number">15.05.2015 - 20.05.2015</span>
 
             </div>
+        </div>
+        <div class="reviews__items">
             <div class="reviews__item">
 
               <div class="reviews__img">
@@ -341,18 +345,20 @@ loadFont(
 
             </div>
           </div>
-          <a href="" class="btn btn--border">Все отзывы</a>
+          </div>
+          <a href="" id="reviews__btn" class="btn btn--border">Все отзывы</a>
         </div>
       </section>
       <section class="action">
         <div class="action__inner">
           <h1 class="action__title">Акции и предложения</h1>
-          <div class="action__slider">
-            <ul class="action__tabs">
-              <li class="action__tab"><a href="#slide-1">item 1</a></li>
-              <li class="action__tab"><a href="#slide-2">item 1</a></li>
-            </ul>
+          <div id="action" class="action__slider owl-carousel">
+
             <div class="action__item">
+            <div class="action__img">
+                <div class="action__img-skin"><img src="img/action_bg1.jpg" alt="Акция1" width="767" height="299" class="action__photo">
+                </div>
+            </div>
               <div class="action__sentence">
                 <h2>Скидки в мае</h2>
                 <div class="action__text">
@@ -361,6 +367,10 @@ loadFont(
               </div>
             </div>
             <div class="action__item">
+              <div class="action__img">
+                <div class="action__img-skin"><img src="img/action_bg2.jpg" alt="Акция2" width="767" height="299" class="action__photo">
+                </div>
+              </div>
               <div class="action__sentence">
                 <h2>Скидки в мае</h2>
                 <div class="action__text">
@@ -369,6 +379,10 @@ loadFont(
               </div>
             </div>
           </div>
+          <!-- <ul class="action__tabs">
+              <li class="action__tab"><a href="#slide-1">item 1</a></li>
+              <li class="action__tab"><a href="#slide-2">item 1</a></li>
+          </ul> -->
         </div>
       </section>
       <section class="map">
