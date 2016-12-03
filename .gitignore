@@ -1,4 +1,4 @@
-build/*
+
 !build/readme.md
 design/
 .Saved/
